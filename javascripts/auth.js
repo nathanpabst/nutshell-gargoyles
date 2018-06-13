@@ -1,3 +1,5 @@
+let userId = '';
+
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -10,8 +12,11 @@ const checkLoginStatus = () => {
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
       console.log('I am in!');
+      userId = user.uid;
+      console.log(userId);
     } else {
       // No user is signed in.
+      console.log('I am out');
     };
   });
 };
