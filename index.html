@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/main.css">
   <title>Document</title>
 </head>
 <body>
+  <div id="dashboard"></div>
+
   <div id="authScreen">
+    <!-- Login Page Starts Here -->
     <div id="login-form">
       <h1 class="text-center">Sign In</h1>
       <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
-
         <div id="signin-error" class="alert alert-danger hide" role="alert">
           <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
           <span class="sr-only">Error:</span>
@@ -46,7 +48,9 @@
         </div>
       </form>
     </div>
+    <!-- Login Page Ends Here -->
 
+    <!-- Registration Page Starts Here -->
     <div class="hide" id="registration-form">
       <h1 class="text-center">Registration</h1>
       <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
@@ -83,13 +87,18 @@
         </div>
       </form>
     </div>
+    <!-- Registration Page Ends Here -->
   </div>
+
+  <div id="messages-page"></div>
+  <div id="tasks-page"></div>
+  <div id="news-page"></div>
+  <div id="friends-page"></div>
+  <div id="events-page"></div>
+
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-  <script src="dist/app.js"></script>
-</body>
-</html>
-
+  <script src="./dist/app.js"></script>
 </body>
 </html>

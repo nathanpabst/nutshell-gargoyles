@@ -3,18 +3,14 @@ const authEvents = () => {
     e.preventDefault();
     const email = $('#inputEmail').val();
     const pass = $('#inputPassword').val();
-    // calling auth services of firebase
-    // pass in email and password
-    // firebase will return a promise
+
     firebase.auth().signInWithEmailAndPassword(email, pass)
       .catch((error) => {
         // Handle Errors here. When get error on sign-in
         $('#signin-error-msg').text(error.message);
         $('#signin-error').removeClass('hide');
-        // var errorCode = error.code;
         const errorMessage = error.message;
         console.error(errorMessage);
-        // ...
       });
   });
 
@@ -38,7 +34,7 @@ const authEvents = () => {
     $('#registration-form').removeClass('hide');
   });
 
-  // switch to log in page
+  // switch to login page
   $('#signin-link').click((e) => {
     $('#login-form').removeClass('hide');
     $('#registration-form').addClass('hide');
@@ -52,4 +48,8 @@ const authEvents = () => {
       console.error(error);
     });
   });
+};
+
+module.exports = {
+  authEvents,
 };

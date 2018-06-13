@@ -1,0 +1,11 @@
+body {
+  background: lightblue;
+}
+
+.hide {
+  display: none;
+}
+
+.glyphicon {
+  top: 0;
+}

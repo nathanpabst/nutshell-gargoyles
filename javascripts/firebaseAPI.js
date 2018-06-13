@@ -1,12 +1,12 @@
-let firebaseConfig = {};
+const auth = require('./auth');
 
 const getFirebseConfig = () => {
   return new Promise((resolve,reject) => {
     $.ajax('../db/apiKeys.json')
       .done((config) => {
         // initialize firebase
-        firebase.initializeApp(config.firebaseDB);
-        firebaseConfig = config;
+        firebase.initializeApp(config.apiKeys.firebaseDB);
+        auth.checkLoginStatus();
         resolve(config);
       })
       .fail((err) => {
@@ -15,4 +15,6 @@ const getFirebseConfig = () => {
   });
 };
 
-
+module.exports = {
+  getFirebseConfig,
+};
