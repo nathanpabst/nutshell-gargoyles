@@ -58,7 +58,10 @@ const authEvents = () => {
           }
         }
         if (usernameExists === true) {
-          console.error('username already exists');
+          const errorMessage = 'Sorry, that username already exists. Please choose a different username.';
+          $('#register-error-msg').text(errorMessage);
+          $('#register-error').removeClass('hide');
+          console.error('Error registering');;
         } else {
           firebase.auth().createUserWithEmailAndPassword(email, pass)
             .then((data) => {

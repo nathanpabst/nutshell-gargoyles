@@ -9,6 +9,8 @@ const setFirebaseConfig = (fbConfig) => {
   firebaseConfig = fbConfig;
 };
 
+// ********************** Setting up a new User Name ***********************
+
 const checkUserNames = () => {
   const usernamesArray = [];
   return new Promise((resolve, reject) => {
@@ -45,6 +47,8 @@ const saveUserNameOnRegister = (newUserObj) => {
       });
   });
 };
+
+// **************************************************************************
 
 module.exports = {
   setUID,
