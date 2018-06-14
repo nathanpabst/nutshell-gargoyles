@@ -18,6 +18,14 @@ const saveNewsArticleEvent = () => {
   });
 };
 
+const modalInit = () => {
+  $('#myModal').on('shown.bs.modal', () => {
+    console.log('from events');
+    $('#myInput').focus();
+  });
+};
+
 module.exports = {
   saveNewsArticleEvent,
+  modalInit,
 };
