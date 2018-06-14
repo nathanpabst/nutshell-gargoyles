@@ -54,6 +54,7 @@ const authEvents = () => {
         for (let i = 0; i < usernamesArray.length; i++) {
           if (userNameEntered === usernamesArray[i]) {
             usernameExists = true;
+            break;
           }
         }
         if (usernameExists === true) {
