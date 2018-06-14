@@ -19,7 +19,7 @@ const saveNewsArticleEvent = () => {
 };
 
 const modalInit = () => {
-  $('#myModal').on('shown.bs.modal', () => {
+  $('#newsModal').on('shown.bs.modal', () => {
     console.log('from events');
     $('#myInput').focus();
   });
