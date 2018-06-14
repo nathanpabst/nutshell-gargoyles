@@ -9,7 +9,7 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="logoutBtn">Log Out</button>
+  <button id="logoutBtn" class="hide">Log Out</button>
   <div id="dashboard"></div>
 
   <div id="authScreen">
@@ -91,12 +91,59 @@
     <!-- Registration Page Ends Here -->
   </div>
 
-  <div id="landing-page"></div>
-  <div id="messages-page"></div>
-  <div id="tasks-page"></div>
-  <div id="news-page"></div>
-  <div id="friends-page"></div>
-  <div id="events-page"></div>
+  <div id="landing-page" class="hide">
+    <div class="landing-page-elements">
+      <div class="row">
+        <div class="layoutDiv col-sm-2 col-sm-offset-3">
+          <div id="messagesBtn" class="dashboard-element text-center">
+            <h3>Messages</h3>
+          </div>
+        </div>
+        <div class="layoutDiv col-sm-2">
+          <div id="eventsBtn" class="dashboard-element text-center">
+            <h3>Events</h3>
+          </div>
+        </div>
+        <div class="layoutDiv col-sm-2">
+          <div id="tasksBtn" class="dashboard-element text-center">
+            <h3>Tasks</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="layoutDiv col-sm-2 col-sm-offset-4">
+          <div id="newsBtn" class="dashboard-element text-center">
+            <h3>News</h3>
+          </div>
+        </div>
+        <div class="layoutDiv col-sm-2">
+          <div id="friendsBtn" class="dashboard-element text-center">
+            <h3>Friends</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="messages-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="events-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="tasks-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="news-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="friends-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

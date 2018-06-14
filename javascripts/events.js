@@ -1,3 +1,30 @@
+const landingPageLinks = () => {
+  $('#messagesBtn').click(() => {
+    $('#messages-page').removeClass('hide');
+    $('#landing-page').addClass('hide');
+  });
+  $('#eventsBtn').click(() => {
+    $('#events-page').removeClass('hide');
+    $('#landing-page').addClass('hide');
+  });
+  $('#tasksBtn').click(() => {
+    $('#tasks-page').removeClass('hide');
+    $('#landing-page').addClass('hide');
+  });
+  $('#newsBtn').click(() => {
+    $('#news-page').removeClass('hide');
+    $('#landing-page').addClass('hide');
+  });
+  $('#friendsBtn').click(() => {
+    $('#friends-page').removeClass('hide');
+    $('#landing-page').addClass('hide');
+  });
+  $('.go-home').click((e) => {
+    $(e.target).closest('.module-container').addClass('hide');
+    $('#landing-page').removeClass('hide');
+  });
+};
+
 const authEvents = () => {
   $('#signin-btn').click((e) => {
     e.preventDefault();
@@ -44,6 +71,7 @@ const authEvents = () => {
   $('#logoutBtn').click((e) => {
     firebase.auth().signOut().then(() => {
     // Sign-out successful.
+      $('#logoutBtn').removeClass('hide');
     }).catch((error) => {
       console.error(error);
     });
@@ -52,4 +80,5 @@ const authEvents = () => {
 
 module.exports = {
   authEvents,
+  landingPageLinks,
 };
