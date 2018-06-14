@@ -1,6 +1,6 @@
 const taskButtonEvent = () => {
-  $('#task-button').click((e) => {
-    $('#authScreen').addClass('hide');
+  $('#myModal').on('shown.bs.modal',  () => {
+    $('#myInput').focus();
   });
 };
 

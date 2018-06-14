@@ -5,6 +5,7 @@ const initializeApp = () => {
   firebaseAPI.getFirebseConfig();
   events.authEvents();
   tasks.initializeTaskApp();
+  events.landingPageLinks();
 };
 
 initializeApp();

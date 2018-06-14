@@ -9,3 +9,43 @@ body {
 .glyphicon {
   top: 0;
 }
+
+/* Landing Page Styles */
+
+.landing-page-elements {
+  margin: 200px auto 0;
+}
+
+.dashboard-element {
+  border: 3px solid #f1f0ee;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  background-color: slategray;
+}
+
+.dashboard-element:hover {
+  background-color: rgb(204, 237, 248);
+  border-color: slategrey;
+}
+
+.dashboard-element:hover h3 {
+  color: slategray;
+}
+
+.dashboard-element h3 {
+  color: #f1f0ee;
+  margin-top: 84px;
+}
+
+/*Tasks  Modal Styling*/
+.modal-header {
+    padding: 15px;
+    border-bottom: 0px solid #e5e5e5;
+}
+
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 0px solid #e5e5e5;
+}

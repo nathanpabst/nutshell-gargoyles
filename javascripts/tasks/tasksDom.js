@@ -1,6 +1,6 @@
 const taskButton = () => {
   let taskString = '';
-  taskString = '<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create a Task</button >';
+  taskString = '<button id= "task-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create a Task</button >';
   printToDom('#tasks-page', taskString);
 };
 
@@ -12,14 +12,19 @@ const taskModalForm = () => {
   modalString += '<div class="modal-content">';
   modalString += '<div class="modal-header">';
   modalString += '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
-  modalString += '<h4 class="modal-title" id="myModalLabel">Modal title</h4>';
+  modalString += '<h4 class="modal-title text-center" id="myModalLabel">New Task</h4>';
   modalString += ' </div>';
-  modalString += '<div class="modal-body">';
-  modalString += '...';
+  modalString += '<div class="row">';
+  modalString += '<div class="modal-body input-group col-lg-6 col-lg-offset-3">';
+  modalString += '<input type="text" class="form-control" aria-label="...">';
+  modalString += '<span class="input-group-addon">';
+  modalString += '<input type="checkbox" aria-label="...">';
+  modalString += '</span>';
+  modalString += '</div>';
   modalString += '</div>';
   modalString += '<div class="modal-footer">';
-  modalString += '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-  modalString += '<button type="button" class="btn btn-primary">Save changes</button>';
+  modalString += '<button id="task-exit" type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+  modalString += '<button id="task-save-btn" type="button" class="btn btn-primary">Save Task</button>';
   modalString += '</div>';
   modalString += '</div>';
   modalString += '</div>';
@@ -28,7 +33,7 @@ const taskModalForm = () => {
 };
 
 const printToDom = (id, string) => {
-  $(id).html(string);
+  $(id).append(string);
 };
 
 module.exports = {
