@@ -1,8 +1,8 @@
-const firebaseAPI = require('./firebaseAPI');
+const apiKeys = require('./apiKeys');
 const events = require('./events');
 
 const initializeApp = () => {
-  firebaseAPI.getFirebseConfig();
+  apiKeys.getFirebaseConfig();
   events.authEvents();
   events.landingPageLinks();
 };
