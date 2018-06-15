@@ -1,4 +1,5 @@
 const auth = require('./auth');
+const eventFirebase = require('./event/eventFirebase');
 
 const getFirebseConfig = () => {
   return new Promise((resolve,reject) => {
@@ -6,6 +7,7 @@ const getFirebseConfig = () => {
       .done((config) => {
         // initialize firebase
         firebase.initializeApp(config.apiKeys.firebaseDB);
+        eventFirebase.setConfig(config.apiKeys.firebaseDB);
         auth.checkLoginStatus();
         resolve(config);
       })
