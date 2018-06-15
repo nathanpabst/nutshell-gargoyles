@@ -1,13 +1,17 @@
 const {saveNewsArticle,} = require('./news');
 
 const saveNewsArticleEvent = () => {
-  $(document).on('click', '.addArticle', (e) => {
-    const articleToAddCard = $(e.target).closest('.article');
+  $(document).on('click', '.saveButton', (e) => {
+    e.preventDefault();
+    const articleInput = $('.article-title').val();
+    const synapsisInput = $('.article-synapsis').val();
+    const urlInput = $('.article-url').val();
     const articleToAdd = {
-      title: articleToAddCard.find('.article-title').text(),
-      synapsis: articleToAddCard.find('.article-synapsis').text(),
-      url: articleToAddCard.find('.article-url').text(),
+      title: articleInput,
+      synapsis: synapsisInput,
+      url: urlInput,
     };
+    console.log('from newsEvents', articleToAdd);
     saveNewsArticle.saveNewsArticleEvent(articleToAdd)
       .then(() => {
         alert('article saved');
@@ -20,7 +24,6 @@ const saveNewsArticleEvent = () => {
 
 const modalInit = () => {
   $('#newsModal').on('shown.bs.modal', () => {
-    console.log('from events');
     $('#myInput').focus();
   });
 };
