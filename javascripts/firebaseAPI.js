@@ -55,5 +55,6 @@ module.exports = {
   uid,
   saveUserNameOnRegister,
   setFirebaseConfig,
+  getFirebaseConfig,
   checkUserNames,
 };
