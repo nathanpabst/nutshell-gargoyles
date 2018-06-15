@@ -9,6 +9,14 @@ const setFirebaseConfig = (fbConfig) => {
   firebaseConfig = fbConfig;
 };
 
+const getUID = () => {
+  return uid;
+};
+
+const getFirebaseConfigObj = () => {
+  return firebaseConfig;
+};
+
 // ********************** Setting up a new User Name ***********************
 
 const checkUserNames = () => {
@@ -52,8 +60,9 @@ const saveUserNameOnRegister = (newUserObj) => {
 
 module.exports = {
   setUID,
-  uid,
-  saveUserNameOnRegister,
   setFirebaseConfig,
+  getUID,
+  getFirebaseConfigObj,
   checkUserNames,
+  saveUserNameOnRegister,
 };
