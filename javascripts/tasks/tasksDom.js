@@ -6,7 +6,6 @@ const taskButton = () => {
 
 const taskModalForm = () => {
   let modalString = '';
-  modalString = '';
   modalString += '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">';
   modalString += '<div class="modal-dialog" role="document">';
   modalString += '<div class="modal-content">';
@@ -32,6 +31,14 @@ const taskModalForm = () => {
   printToDom('#tasks-page', modalString);
 };
 
+const savedTaskDom = () => {
+  let taskString = '';
+  taskString += '<div class="well">'
+  taskString += '...';
+  taskString += '</div>';
+  printToDom('#tasks-page', taskString);
+};
+
 const printToDom = (id, string) => {
   $(id).append(string);
 };
@@ -39,4 +46,5 @@ const printToDom = (id, string) => {
 module.exports = {
   taskButton,
   taskModalForm,
+  savedTaskDom,
 };
