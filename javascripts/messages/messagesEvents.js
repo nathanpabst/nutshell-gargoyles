@@ -17,7 +17,6 @@ const deactivateChatModalEvent = () => {
 // Post message to database
 const postMessageToDBEvent = () => {
   $(document).on('click','#chat-input-send-btn', () => {
-    const messagesArray = [];
     const messageToSave = {
       avatar: 'https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg',
       message: $('#chat-input-message').val(),
@@ -26,8 +25,7 @@ const postMessageToDBEvent = () => {
     };
     messagesFirebaseAPI.postMessageToDB(messageToSave)
       .then(() => {
-        messagesArray.push(messageToSave);
-        messagesDom.printMessages(messagesArray);
+        getMessage();
       })
       .catch((err) => {
         console.error(err);
@@ -36,13 +34,30 @@ const postMessageToDBEvent = () => {
 };
 
 // Get message from database
+const getMessage = () => {
+  messagesFirebaseAPI.getMessageFromDB()
+    .then((messagesArray) => {
+      console.log(messagesArray);
+      messagesDom.printMessages(messagesArray);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 const getMessageFromDBEvent = () => {
   $(document).on('click','#messagesBtn', () => {
-    console.log('click');
-    messagesFirebaseAPI.getMessageFromDB()
-      .then((messagesArray) => {
-        console.log(messagesArray);
-        messagesDom.printMessages(messagesArray);
+    getMessage();
+  });
+};
+
+// Delete message in database
+const deleteMessageFromDBEvent = () => {
+  $(document).on('click','.chat-message-delete-btn', (e) => {
+    const messageId = $(e.target).closest('li').attr('id');
+    messagesFirebaseAPI.deleteMessageFromDB(messageId)
+      .then(() => {
+        getMessage();
       })
       .catch((err) => {
         console.error(err);
@@ -55,4 +70,5 @@ module.exports = {
   deactivateChatModalEvent,
   postMessageToDBEvent,
   getMessageFromDBEvent,
+  deleteMessageFromDBEvent,
 };

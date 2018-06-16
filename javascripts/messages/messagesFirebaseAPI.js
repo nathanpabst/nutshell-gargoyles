@@ -6,8 +6,8 @@ let userId = '';
 const getFirebaseConfig = () => {
   firebaseConfig = firebaseAPI.getFirebaseConfigObj();
   userId = firebaseAPI.getUID();
-  console.log(firebaseConfig.apiKeys.firebaseDB.databaseURL);
-  console.log(userId);
+  // console.log(firebaseConfig.apiKeys.firebaseDB.databaseURL);
+  // console.log(userId);
 };
 
 // Post message to database
@@ -54,8 +54,25 @@ const getMessageFromDB = () => {
   });
 };
 
+// Delete message in database
+const deleteMessageFromDB = (messageId) => {
+  return new Promise((resolve,reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/messages/${messageId}.json`,
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
 module.exports = {
   getFirebaseConfig,
   postMessageToDB,
   getMessageFromDB,
+  deleteMessageFromDB,
 };

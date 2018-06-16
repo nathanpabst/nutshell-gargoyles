@@ -16,6 +16,7 @@ const initializeApp = () => {
   messagesEvents.deactivateChatModalEvent();
   messagesEvents.postMessageToDBEvent();
   messagesEvents.getMessageFromDBEvent();
+  messagesEvents.deleteMessageFromDBEvent();
 };
 
 const eventInitialize = () => {
