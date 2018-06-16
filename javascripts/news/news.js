@@ -16,6 +16,7 @@ const getNews = () => {
             savedNewsArray.push(allNewsObj[fbKey]);
           });
         }
+        // console.log(savedNewsArray);
         resolve(savedNewsArray);
       })
       .fail((error) => {

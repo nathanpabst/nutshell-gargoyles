@@ -1,4 +1,4 @@
-const {modalInit, saveNewsEvent, getNewsEvent,} = require('./newsEvents');
+const {modalInit, saveNewsEvent,} = require('./newsEvents');
 const {addArticleButton, printModalForm,} = require('./newsDom');
 
 const initializeNews = () => {
@@ -6,7 +6,6 @@ const initializeNews = () => {
   printModalForm();
   modalInit();
   saveNewsEvent();
-  getNewsEvent();
 };
 
 module.exports = {

@@ -17,17 +17,17 @@ const printModalForm = () => {
                   <form role="form">
                   <div class="form-group">
                     <label for="articleTitle">Article Title</label>
-                      <input type="text" class="form-control article-title"
+                      <input type="text" class="form-control article-title-input"
                       placeholder="Article Title"/>
                   </div>
                   <div class="form-group">
                     <label for="articleSynapsis">Synapsis</label>
-                      <input type="text" class="form-control article-synapsis"
+                      <input type="text" class="form-control article-synapsis-input"
                       placeholder="Synapsis"/>
                   </div>
                   <div class="form-group">
                         <label for="articleUrl">Article URL</label>
-                          <input type="text" class="form-control article-url"
+                          <input type="text" class="form-control article-url-input"
                           placeholder="Article URL"/>
                     </div>
                 </form>
@@ -43,22 +43,31 @@ const printModalForm = () => {
 
 const printNews = (articleArray) => {
   let newsOutput = '';
+  console.log('array:',articleArray);
   newsOutput += `<h1 class="text-center">News</h1>`;
   articleArray.forEach((article) => {
-    newsOutput += `<div class="row">
-                    <div class="col-sm-6 col-md-4">
-                      <a class="btn deleteArticle">X</a>
-                      <h3 class="text-center article-title">${article.title}</h3>
-                      <h3 class="text-center article-synapsis">${article.synapsis}</h3>
+    newsOutput += `<div class='row'>
+                    <div class="col-sm-12">
+                    <div class="panel">
+                      <div class="panel-heading">
+                        <h3 class="article-title">${article.title}</h3>
+                      </div>
+                      <div class="panel-body">
+                      <p class="article-synapsis">${article.synapsis}</p>
                       <a class="article-url" href="${article.url}"></a>
                     </div>
+                  </div>
                   </div>`;
   });
-  printToDom(newsOutput);
+  print(newsOutput);
 };
 
 const printToDom = (stringz) => {
   $('#news-page').append(stringz);
+};
+
+const print = (newsStringz) => {
+  $('#newsContainer').html(newsStringz);
 };
 
 module.exports = {

@@ -14,9 +14,11 @@ const getNewsEvent = () => {
 const saveNewsEvent = () => {
   $(document).on('click', '.saveButton', (e) => {
     e.preventDefault();
-    const articleInput = $('.article-title').val();
-    const synapsisInput = $('.article-synapsis').val();
-    const urlInput = $('.article-url').val();
+    const articleArray = [];
+    const articleInput = $('.article-title-input').val();
+    console.log('AriticleInput', articleInput);
+    const synapsisInput = $('.article-synapsis-input').val();
+    const urlInput = $('.article-url-input').val();
     const articleToAdd = {
       title: articleInput,
       synapsis: synapsisInput,
@@ -25,6 +27,9 @@ const saveNewsEvent = () => {
     news.saveNewsToDb(articleToAdd)
       .then(() => {
         alert('article saved');
+        getNewsEvent();
+        articleArray.push(articleToAdd);
+        newsDom.printNews(articleArray);
       })
       .catch((error) => {
         console.error('error in saving article', error);
