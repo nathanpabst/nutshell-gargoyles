@@ -1,4 +1,15 @@
 const news = require('./news');
+const newsDom = require('./newsDom');
+
+const getNewsEvent = () => {
+  news.getNews()
+    .then((articleArray) => {
+      newsDom.printNews(articleArray);
+    })
+    .catch((error) => {
+      console.error('error in finding news', error);
+    });
+};
 
 const saveNewsEvent = () => {
   $(document).on('click', '.saveButton', (e) => {
@@ -29,5 +40,6 @@ const modalInit = () => {
 
 module.exports = {
   saveNewsEvent,
+  getNewsEvent,
   modalInit,
 };

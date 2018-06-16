@@ -41,6 +41,22 @@ const printModalForm = () => {
   printToDom(output);
 };
 
+const printNews = (articleArray) => {
+  let newsOutput = '';
+  newsOutput += `<h1 class="text-center">News</h1>`;
+  articleArray.forEach((article) => {
+    newsOutput += `<div class="row">
+                    <div class="col-sm-6 col-md-4">
+                      <a class="btn deleteArticle">X</a>
+                      <h3 class="text-center article-title">${article.title}</h3>
+                      <h3 class="text-center article-synapsis">${article.synapsis}</h3>
+                      <a class="article-url" href="${article.url}"></a>
+                    </div>
+                  </div>`;
+  });
+  printToDom(newsOutput);
+};
+
 const printToDom = (stringz) => {
   $('#news-page').append(stringz);
 };
@@ -48,4 +64,5 @@ const printToDom = (stringz) => {
 module.exports = {
   printModalForm,
   addArticleButton,
+  printNews,
 };
