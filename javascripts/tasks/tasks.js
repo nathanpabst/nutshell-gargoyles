@@ -1,13 +1,22 @@
-const {savedTaskDom,} = require ('./tasksDom');
+const {getUID, getFirebaseConfigObj,} = require ('../firebaseAPI');
 
-const singleTask = {
-  userUid: '5ykBb0xyadPZLgH4EPO4i88HIql2',
-  task: 'Take out garbage',
-  isCompleted: true,
+const saveTasks = (newTask) => {
+  newTask.uid = getUID();
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'POST',
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json`,
+      data: JSON.stringify(newTask),
+    })
+      .done((uniqueKey) => {
+        resolve(uniqueKey);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
 };
 
-const showTaskResults = () => {
-  savedTaskDom([singleTask, singleTask, singleTask, singleTask,]);
+module.exports = {
+  saveTasks,
 };
-
-module.exports = showTaskResults;

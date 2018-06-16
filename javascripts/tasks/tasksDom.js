@@ -6,7 +6,7 @@ const taskButton = () => {
 
 const taskModalForm = () => {
   let modalString = '';
-  modalString += '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">';
+  modalString += '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel task">';
   modalString += '<div class="modal-dialog" role="document">';
   modalString += '<div class="modal-content">';
   modalString += '<div class="modal-header">';
@@ -15,7 +15,7 @@ const taskModalForm = () => {
   modalString += ' </div>';
   modalString += '<div class="row">';
   modalString += '<div class="modal-body input-group col-lg-6 col-lg-offset-3">';
-  modalString += '<input type="text" class="form-control" aria-label="...">';
+  modalString += `<input id="input-modal "type="text" class="form-control grabTask" aria-label="...">`;
   modalString += '<span class="input-group-addon">';
   modalString += '<input type="checkbox" aria-label="...">';
   modalString += '</span>';
@@ -23,7 +23,7 @@ const taskModalForm = () => {
   modalString += '</div>';
   modalString += '<div class="modal-footer">';
   modalString += '<button id="task-exit" type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-  modalString += '<button id="task-save-btn" type="button" class="btn btn-primary">Save Task</button>';
+  modalString += '<button id="task-save-btn" type="button" class="btn btn-primary ">Save Task</button>';
   modalString += '</div>';
   modalString += '</div>';
   modalString += '</div>';
@@ -31,11 +31,13 @@ const taskModalForm = () => {
   printToDom('#tasks-page', modalString);
 };
 
-const savedTaskDom = () => {
+const savedTaskDom = (taskArray) => {
   let taskString = '';
-  taskString += '<div class="well">'
-  taskString += '...';
-  taskString += '</div>';
+  taskArray.forEach((task) => {
+    taskString += `<div class="well">`;
+    taskString += `<h2>"${task.task}</h2>`;
+    taskString += `</div>`;
+  });
   printToDom('#tasks-page', taskString);
 };
 

@@ -1,4 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
+const tasks = require('./tasks/taskMain');
 
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {
@@ -12,6 +13,7 @@ const landingPageLinks = () => {
   $('#tasksBtn').click(() => {
     $('#tasks-page').removeClass('hide');
     $('#landing-page').addClass('hide');
+    tasks.initializeTaskApp();
   });
   $('#newsBtn').click(() => {
     $('#news-page').removeClass('hide');
