@@ -9,7 +9,7 @@
   <title>Document</title>
 </head>
 <body>
-  <button id="logoutBtn">Log Out</button>
+  <button id="logoutBtn" class="hide">Log Out</button>
   <div id="dashboard"></div>
 
   <div id="authScreen">
@@ -92,31 +92,157 @@
   </div>
 
   <div id="messages-page">
-    <h2>Bottom Modal</h2>
-    <!-- Trigger/Open The Modal -->
-    <button id="open-chat-modal-btn">Open Modal</button>
     <!-- The Modal -->
     <div id="chat-modal" class="modal">
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
           <span class="close" id="close-chat-modal-btn">&times;</span>
-          <h2>Modal Header</h2>
         </div>
         <div class="modal-body">
-          <p>Some text in the Modal Body</p>
-          <p>Some other text...</p>
-        </div>
-        <div class="modal-footer">
-          <h3>Modal Footer</h3>
+          <div id="chat-left-panel">
+            <div id="chat-active-user">
+              <div id="chat-active-user-left">
+                <img id="chat-active-user-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg">
+              </div>
+              <div id="chat-active-user-right">
+                <div id="chat-active-user-name">Doggy Doggy</div>
+                <div id="chat-active-user-status"><span class="glyphicon glyphicon-triangle-bottom"></span>online</div>
+                <textarea id="chat-active-user-moment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eiujaldjflajslkdf;ksd;fk;s kma lakdl kadlf</textarea>
+              </div>
+            </div>
+            <div id="chat-search-bar">
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+                <input type="text" class="form-control" placeholder="Search Friend" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div id="chat-friend-list">
+              <ul>
+                <li>
+                  <div class="chat-friend-list-wrapper">
+                    <div class="chat-friend-list-wrapper-left">
+                      <img class="chat-friend-list-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="">
+                    </div>
+                    <div class="chat-friend-list-wrapper-right">
+                      <span class="chat-friend-list-name">NAME1</span>
+                      <p class="chat-friend-list-message">Message</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="chat-friend-list-wrapper">
+                    <div class="chat-friend-list-wrapper-left">
+                      <img class="chat-friend-list-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="">
+                    </div>
+                    <div class="chat-friend-list-wrapper-right">
+                      <span class="chat-friend-list-name">NAME1</span>
+                      <p class="chat-friend-list-message">Message</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="chat-friend-list-wrapper-left">
+                    <img class="chat-friend-list-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="">
+                  </div>
+                  <div class="chat-friend-list-wrapper-right">
+                    <span class="chat-friend-list-name">NAME1</span>
+                    <p class="chat-friend-list-message">Message</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="chat-friend-action"></div>
+          </div>
+          <div id="chat-right-panel">
+            <div id="chat-friend"></div>
+            <div id="chat-message">
+              <ul>
+                <li>
+                  <div class="chat-message-wrapper-me">
+                    <img src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="" class="chat-message-user-avatar chat-message-user-avatar-me">
+                    <p class="chat-message-detail chat-message-detail-me">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi facere provident beatae vero accusamus temporibus totam accusantium sed officiis obcaecati nemo repellat, rerum tenetur distinctio necessitatibus voluptatum, ut voluptates!</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="chat-message-wrapper-other">
+                    <img src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="" class="chat-message-user-avatar chat-message-user-avatar-other">
+                    <p class="chat-message-detail chat-message-detail-other">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi facere provident beatae vero accusamus temporibus totam accusantium sed officiis obcaecati nemo repellat, rerum tenetur distinctio necessitatibus voluptatum, ut voluptates!</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="chat-message-wrapper-other">
+                    <img src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg" alt="" class="chat-message-user-avatar chat-message-user-avatar-other">
+                    <p class="chat-message-detail chat-message-detail-other">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero commodi facere provident beatae vero accusamus temporibus totam accusantium sed officiis obcaecati nemo repellat, rerum tenetur distinctio necessitatibus voluptatum, ut voluptates!</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="chat-input"></div>
+          </div>
         </div>
       </div>
     </div>  <!-- The Modal Ends -->
   </div>
+
   <div id="tasks-page"></div>
   <div id="news-page"></div>
   <div id="friends-page"></div>
   <div id="events-page"></div>
+
+  <div id="landing-page" class="hide">
+    <div class="landing-page-elements">
+      <div class="row">
+        <div class="layoutDiv col-sm-2 col-sm-offset-3">
+          <div id="messagesBtn" class="dashboard-element text-center">
+            <h3>Messages</h3>
+          </div>
+        </div>
+        <div class="layoutDiv col-sm-2">
+          <div id="eventsBtn" class="dashboard-element text-center">
+            <h3>Events</h3>
+          </div>
+        </div>
+        <div class="layoutDiv col-sm-2">
+          <div id="tasksBtn" class="dashboard-element text-center">
+            <h3>Tasks</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="layoutDiv col-sm-2 col-sm-offset-4">
+          <div id="newsBtn" class="dashboard-element text-center">
+            <h3>News</h3>
+          </div>
+        </div>
+        <div class="layoutDiv col-sm-2">
+          <div id="friendsBtn" class="dashboard-element text-center">
+            <h3>Friends</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="messages-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="events-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="tasks-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="news-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
+
+  <div id="friends-page" class="module-container hide">
+    <button class="btn btn-default go-home">Home</button>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

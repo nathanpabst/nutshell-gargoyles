@@ -1,5 +1,5 @@
 const activateChatModal = () => {
-  $(document).on('click','#open-chat-modal-btn', () => {
+  $(document).on('click','#messagesBtn', () => {
     $('#chat-modal').css('display', 'block');
   });
 };

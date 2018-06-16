@@ -7,6 +7,7 @@ const initializeApp = () => {
   events.authEvents();
   messagesEvents.activateChatModal();
   messagesEvents.deactivateChatModal();
+  events.landingPageLinks();
 };
 
 initializeApp();
