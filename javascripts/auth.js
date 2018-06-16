@@ -1,5 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
-const messagesEvents = require('./messages/messagesEvents');
+// const messagesEvents = require('./messages/messagesEvents');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -14,8 +14,6 @@ const checkLoginStatus = () => {
       $('#news-page').addClass('hide');
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
-
-      messagesEvents.getFirebaseConfigEvent();
       console.log('I am in!');
     } else {
       // No user is signed in.

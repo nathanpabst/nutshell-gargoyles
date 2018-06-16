@@ -218,12 +218,13 @@ body {
 
 .chat-message-detail {
   display: block;
-  width: 40%;
+  max-width: 40%;
   margin-top: 12px;
   margin-left: 20px;
 }
 .chat-message-wrapper-me {
   float: left;
+  width: 100%;
 }
 
 .chat-message-user-avatar-me {
@@ -236,6 +237,7 @@ body {
 
 .chat-message-wrapper-other {
   float: right;
+  width: 100%;
 }
 
 .chat-message-user-avatar-other {

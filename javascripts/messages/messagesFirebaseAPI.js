@@ -12,6 +12,7 @@ const getFirebaseConfig = () => {
 
 // Post message to database
 const postMessageToDB = (messageToSave) => {
+  getFirebaseConfig();
   return new Promise((resolve,reject) => {
     messageToSave.userUid = userId;
 
@@ -29,7 +30,32 @@ const postMessageToDB = (messageToSave) => {
   });
 };
 
+// Get message from database
+const getMessageFromDB = () => {
+  getFirebaseConfig();
+  return new Promise((resolve,reject) => {
+    const messagesArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/messages.json`,
+    })
+      .done((allMessages) => {
+        if (allMessages !== null) {
+          Object.keys(allMessages).forEach((fbKey) => {
+            allMessages[fbKey].id = fbKey;
+            messagesArray.push(allMessages[fbKey]);
+          });
+        };
+        resolve(messagesArray);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
 module.exports = {
   getFirebaseConfig,
   postMessageToDB,
+  getMessageFromDB,
 };
