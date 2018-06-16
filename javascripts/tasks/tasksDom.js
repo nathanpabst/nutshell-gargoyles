@@ -1,7 +1,9 @@
 const taskButton = () => {
-  let taskString = '';
-  taskString = '<button id= "task-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create a Task</button >';
-  printToDom('#tasks-page', taskString);
+  let buttonString = '';
+  buttonString += '<div class="create-task-btn">';
+  buttonString += '<button id= "task-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create a Task</button >';
+  buttonString += '</div>';
+  printToDom('#tasks-page', buttonString);
 };
 
 const taskModalForm = () => {
@@ -22,7 +24,7 @@ const taskModalForm = () => {
   modalString += '</div>';
   modalString += '</div>';
   modalString += '<div class="modal-footer">';
-  modalString += '<button id="task-exit" type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
+  modalString += '<button id="close-task" type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
   modalString += '<button id="task-save-btn" type="button" class="btn btn-primary ">Save Task</button>';
   modalString += '</div>';
   modalString += '</div>';
@@ -34,8 +36,11 @@ const taskModalForm = () => {
 const savedTaskDom = (taskArray) => {
   let taskString = '';
   taskArray.forEach((task) => {
-    taskString += `<div class="well">`;
-    taskString += `<h2>"${task.task}</h2>`;
+    taskString += `<div class="col-sm-6 col-md-4 text-center"">`;
+    taskString += `<div class="thumbnail">`;
+    taskString += `<h3>${task.task}</h3>`;
+    taskString += `<p><span class="btn btn-primary edit-btns glyphicon glyphicon-edit" text="edit" role="button"></span> <span class="btn btn-danger glyphicon glyphicon-trash delete-btns" role="button"></span></p>`;
+    taskString += `</div>`;
     taskString += `</div>`;
   });
   printToDom('#tasks-page', taskString);

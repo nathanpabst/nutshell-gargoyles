@@ -1,4 +1,5 @@
 const tasks = require('./tasks');
+const {savedTaskDom,} = require('./tasksDom');
 
 const taskButtonEvent = () => {
   $('#myModal').on('shown.bs.modal',  () => {
@@ -10,18 +11,34 @@ const saveTasksEvent = () => {
   $('#task-save-btn').click((e) => {
     e.preventDefault();
     const taskInput = $('.grabTask').val();
-    console.log('task', taskInput);
     const taskToAdd = {
       task: taskInput,
       isCompleted: true,
     };
-    tasks.saveTasks(taskToAdd);
+    tasks.saveTasks(taskToAdd)
+      .then(() => {
+        getSavedTasksEvent();
+      });
   });
+};
+
+const getSavedTasksEvent = () => {
+  tasks.getSavedTasks()
+    .then((tasksArray) => {
+      savedTaskDom(tasksArray);
+    })
+    .catch((error) => {
+      console.error('error in getSavedTasks Event', error);
+    });
 };
 
 const taskEventInit = () => {
   taskButtonEvent();
   saveTasksEvent();
+  getSavedTasksEvent();
 };
 
-module.exports = taskEventInit;
+module.exports = {
+  taskEventInit,
+  getSavedTasksEvent,
+};
