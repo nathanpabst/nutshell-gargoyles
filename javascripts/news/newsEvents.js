@@ -1,6 +1,6 @@
-const {saveNewsArticle,} = require('./news');
+const news = require('./news');
 
-const saveNewsArticleEvent = () => {
+const saveNewsEvent = () => {
   $(document).on('click', '.saveButton', (e) => {
     e.preventDefault();
     const articleInput = $('.article-title').val();
@@ -11,8 +11,7 @@ const saveNewsArticleEvent = () => {
       synapsis: synapsisInput,
       url: urlInput,
     };
-    console.log('from newsEvents', articleToAdd);
-    saveNewsArticle.saveNewsArticleEvent(articleToAdd)
+    news.saveNewsToDb(articleToAdd)
       .then(() => {
         alert('article saved');
       })
@@ -29,6 +28,6 @@ const modalInit = () => {
 };
 
 module.exports = {
-  saveNewsArticleEvent,
+  saveNewsEvent,
   modalInit,
 };

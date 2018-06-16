@@ -1,20 +1,11 @@
-let firebaseConfig = {};
-let uid = '';
+const {getUID, getFirebaseConfigObj,} = require('../firebaseAPI');
 
-const setConfig = (fbConfig) => {
-  firebaseConfig = fbConfig;
-};
-
-const setUID = (userID) => {
-  uid = userID;
-};
-
-const saveNewsArticle = (newArticle) => {
-  newArticle.uid = uid;
+const saveNewsToDb = (newArticle) => {
+  newArticle.uid = getUID();
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `${firebaseConfig.databaseURL}/news.json`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/news.json`,
       data: JSON.stringify(newArticle),
     })
       .done((uniqueKey) => {
@@ -27,7 +18,5 @@ const saveNewsArticle = (newArticle) => {
 };
 
 module.exports = {
-  saveNewsArticle,
-  setConfig,
-  setUID,
+  saveNewsToDb,
 };
