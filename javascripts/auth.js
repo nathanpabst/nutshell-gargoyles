@@ -1,9 +1,11 @@
-let userId = '';
+const firebaseAPI = require('./firebaseAPI');
+const messagesEvents = require('./messages/messagesEvents');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       // User is signed in.
+      firebaseAPI.setUID(user.uid);
       $('#landing-page').removeClass('hide');
       $('#logoutBtn').removeClass('hide');
       $('#authScreen').addClass('hide');
@@ -12,9 +14,9 @@ const checkLoginStatus = () => {
       $('#news-page').addClass('hide');
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
+
+      messagesEvents.getFirebaseConfigEvent();
       console.log('I am in!');
-      userId = user.uid;
-      console.log(userId);
     } else {
       // No user is signed in.
       $('#authScreen').removeClass('hide');

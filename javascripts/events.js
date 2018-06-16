@@ -1,3 +1,5 @@
+const firebaseAPI = require('./firebaseAPI');
+
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {
     $('#messages-page').removeClass('hide');
@@ -45,14 +47,57 @@ const authEvents = () => {
   $('#register-btn').click(() => {
     const email = $('#registerEmail').val();
     const pass = $('#registerPassword').val();
-    firebase.auth().createUserWithEmailAndPassword(email, pass)
-      .catch((error) => {
-        // Handle Errors here.
-        $('#register-error-msg').text(error.message);
-        $('#register-error').removeClass('hide');
-        const errorMessage = error.message;
-        console.error(errorMessage);
+    const userNameEntered = $('#registerUserName').val();
+    firebaseAPI.checkUserNames()
+      .then((usernamesArray) => {
+        let usernameExists = false;
+        for (let i = 0; i < usernamesArray.length; i++) {
+          if (userNameEntered === usernamesArray[i]) {
+            usernameExists = true;
+            break;
+          }
+        }
+        if (usernameExists === true) {
+          const errorMessage = 'Sorry, that username already exists. Please choose a different username.';
+          $('#register-error-msg').text(errorMessage);
+          $('#register-error').removeClass('hide');
+          console.error('Error registering');;
+        } else {
+          firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .then((data) => {
+              const newUserObj = {
+                username: userNameEntered,
+                uid: data.user.uid,
+              };
+              firebaseAPI.saveUserNameOnRegister(newUserObj);
+            })
+            .catch((error) => {
+              // Handle Errors here.
+              $('#register-error-msg').text(error.message);
+              $('#register-error').removeClass('hide');
+              const errorMessage = error.message;
+              console.error(errorMessage);
+            });
+        }
+      })
+      .catch((err) => {
+        console.error('Error with checking username against database', err);
       });
+    // firebase.auth().createUserWithEmailAndPassword(email, pass)
+    //   .then((data) => {
+    //     const newUserObj = {
+    //       username: userNameEntered,
+    //       uid: data.user.uid,
+    //     };
+    //     firebaseAPI.saveUserNameOnRegister(newUserObj);
+    //   })
+    //   .catch((error) => {
+    //     // Handle Errors here.
+    //     $('#register-error-msg').text(error.message);
+    //     $('#register-error').removeClass('hide');
+    //     const errorMessage = error.message;
+    //     console.error(errorMessage);
+    //   });
   });
 
   // switch to registration page
