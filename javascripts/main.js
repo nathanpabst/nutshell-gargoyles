@@ -17,6 +17,8 @@ const initializeApp = () => {
   messagesEvents.postMessageToDBEvent();
   messagesEvents.getMessageFromDBEvent();
   messagesEvents.deleteMessageFromDBEvent();
+  messagesEvents.getMessageForEditEvent();
+  messagesEvents.editMessageInDBEvent();
 };
 
 const eventInitialize = () => {

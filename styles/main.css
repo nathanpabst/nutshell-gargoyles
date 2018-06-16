@@ -17,7 +17,7 @@ body {
 }
 
 /* The Modal (background) */
-.modal {
+.modal-for-chat {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -35,7 +35,7 @@ body {
 }
 
 /* Modal Content */
-.modal-content {
+.modal-content-for-chat {
     position: fixed;
     bottom: 0;
     background-color: #fefefe;
@@ -62,13 +62,13 @@ body {
     cursor: pointer;
 }
 
-.modal-header {
+.modal-header-for-chat {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
 }
 
-.modal-body {
+.modal-body-for-chat {
   padding: 2px 16px;
   display: flex;
   justify-content: space-evenly;
@@ -261,6 +261,10 @@ body {
   margin-right: 20px;
 }
 
+#chat-message-content-edit {
+  height: 200px;
+}
+
 #chat-input {
   height: 10%;
 }
@@ -314,12 +318,12 @@ body {
 }
 
 /*Tasks  Modal Styling*/
-.modal-header {
+.modal-header-for-chat {
     padding: 15px;
     border-bottom: 0px solid #e5e5e5;
 }
 
-.modal-footer {
+.modal-footer-for-chat {
     padding: 15px;
     text-align: right;
     border-top: 0px solid #e5e5e5;

@@ -65,10 +65,44 @@ const deleteMessageFromDBEvent = () => {
   });
 };
 
+// Edit exising message
+let messageId = '';
+let messageContent = '';
+
+const getMessageForEditEvent = () => {
+  $(document).on('click','.chat-message-edit-btn', (e) => {
+    messageId = $(e.target).closest('li').attr('id');
+    messageContent = $(e.target).closest('.chat-message-wrapper-other').find('.chat-message-detail').html();
+    console.log(messageContent);
+    $('#chat-message-content-edit').val(messageContent);
+  });
+};
+
+const editMessageInDBEvent = () => {
+  $(document).on('click','#chat-message-save-change-btn', (e) => {
+    e.preventDefault();
+    const messageToEdit = {
+      avatar: 'https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg',
+      message: $('#chat-message-content-edit').val(),
+      timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      isEdited: true,
+    };
+    messagesFirebaseAPI.editMessageInDB(messageToEdit,messageId)
+      .then(() => {
+        getMessage();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  });
+};
+
 module.exports = {
   activateChatModalEvent,
   deactivateChatModalEvent,
   postMessageToDBEvent,
   getMessageFromDBEvent,
   deleteMessageFromDBEvent,
+  editMessageInDBEvent,
+  getMessageForEditEvent,
 };

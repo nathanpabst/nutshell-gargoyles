@@ -70,9 +70,27 @@ const deleteMessageFromDB = (messageId) => {
   });
 };
 
+// Edit exising message
+const editMessageInDB = (messageToEdit,messageId) => {
+  return new Promise((resolve,reject) => {
+    $.ajax({
+      method: 'PUT',
+      url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/messages/${messageId}.json`,
+      data: JSON.stringify(messageToEdit),
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
 module.exports = {
   getFirebaseConfig,
   postMessageToDB,
   getMessageFromDB,
   deleteMessageFromDB,
+  editMessageInDB,
 };
