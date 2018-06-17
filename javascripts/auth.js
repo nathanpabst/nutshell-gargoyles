@@ -1,4 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
+// const messagesEvents = require('./messages/messagesEvents');
 // const {getAllEventsEvent,} = require('./event/eventEvents');
 
 const checkLoginStatus = () => {
