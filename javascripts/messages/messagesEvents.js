@@ -75,7 +75,7 @@ let messageContent = '';
 const getMessageForEditEvent = () => {
   $(document).on('click','.chat-message-edit-btn', (e) => {
     messageId = $(e.target).closest('li').data('messageId');
-    messageContent = $(e.target).closest('.chat-message-wrapper-other').find('.chat-message-detail').html();
+    messageContent = $(e.target).closest('.chat-message-wrapper').find('.chat-message-detail').html();
     console.log(messageContent);
     $('#chat-message-content-edit').val(messageContent);
   });

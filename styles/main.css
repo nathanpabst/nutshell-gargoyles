@@ -18,9 +18,9 @@ body {
 
 /* The Modal (background) */
 .modal-for-chat {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
@@ -224,6 +224,33 @@ body {
   max-width: 40%;
   margin-top: 12px;
 }
+
+/* hover over message then display bottons */
+.chat-message-btn-group {
+  display: none;
+  margin-top: 12px;
+}
+
+.chat-message-btn-group-me {
+  float: left;
+}
+
+.chat-message-btn-group-other {
+  float: right;
+}
+
+.chat-message-detail:hover + .chat-message-btn-group-me,
+.chat-message-btn-group:hover {
+  display: inline-block;
+}
+
+.chat-message-edit-btn,
+.chat-message-delete-btn {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-width: 2px;
+}
+
 .chat-message-wrapper-me {
   float: left;
   width: 100%;
