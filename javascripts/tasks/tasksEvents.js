@@ -35,10 +35,10 @@ const getSavedTasksEvent = () => {
 const taskEventInit = () => {
   taskButtonEvent();
   saveTasksEvent();
-  getSavedTasksEvent();
 };
 
 module.exports = {
   taskEventInit,
   getSavedTasksEvent,
+
 };

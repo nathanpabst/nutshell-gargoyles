@@ -1,5 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
-const { getSavedTasksEvent, } = require ('./tasks/tasksEvents');
+const tasks = require('./tasks/taskMain');
 
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {
@@ -9,11 +9,11 @@ const landingPageLinks = () => {
   $('#eventsBtn').click(() => {
     $('#events-page').removeClass('hide');
     $('#landing-page').addClass('hide');
-    getSavedTasksEvent();
   });
   $('#tasksBtn').click(() => {
     $('#tasks-page').removeClass('hide');
     $('#landing-page').addClass('hide');
+    tasks.initializeTaskApp();
   });
   $('#newsBtn').click(() => {
     $('#news-page').removeClass('hide');

@@ -4,6 +4,7 @@ const taskEvent = require('./tasksEvents');
 const initializeTaskApp = () => {
   taskDom.taskButton();
   taskDom.taskModalForm();
+  taskEvent.getSavedTasksEvent();
   taskEvent.taskEventInit();
 };
 
