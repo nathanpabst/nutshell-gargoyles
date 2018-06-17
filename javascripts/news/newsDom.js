@@ -47,16 +47,18 @@ const printNews = (articleArray) => {
   newsOutput += `<h1 class="text-center">News</h1>`;
   articleArray.forEach((article) => {
     newsOutput += `<div class='row'>
-                    <div class="col-sm-12">
-                    <div class="panel">
-                      <div class="panel-heading">
-                        <h3 class="article-title">${article.title}</h3>
+                    <div class="col-sm-8">
+                      <div class="panel">
+                        <div class="panel-heading">
+                          <h3 class="article-title">${article.title}</h3>
+                        </div>
+                        <div class="panel-body">
+                          <p class="article-synapsis">${article.synapsis}</p>
+                          <p><a class="btn btn-default article-url" href="${article.url}" role="button" target="_blank">Read More</a></p>
+                        </div>
+                        <div class="panel-footer">Panel footer</div>
                       </div>
-                      <div class="panel-body">
-                      <p class="article-synapsis">${article.synapsis}</p>
-                      <a class="article-url" href="${article.url}"></a>
                     </div>
-                  </div>
                   </div>`;
   });
   print(newsOutput);
