@@ -1,5 +1,7 @@
 const firebaseAPI = require('./firebaseAPI');
 const newsEvents = require('./news/newsEvents');
+const eventEvent = require('./event/eventEvents');
+const news = require('./news/newsMain');
 
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {
@@ -9,6 +11,7 @@ const landingPageLinks = () => {
   $('#eventsBtn').click(() => {
     $('#events-page').removeClass('hide');
     $('#landing-page').addClass('hide');
+    eventEvent.getAllEventsEvent();
   });
   $('#tasksBtn').click(() => {
     $('#tasks-page').removeClass('hide');
