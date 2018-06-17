@@ -14,6 +14,7 @@ const initializeApp = () => {
 };
 
 const eventInitialize = () => {
+
   eventMain.initial();
 };
 
