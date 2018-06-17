@@ -4,7 +4,7 @@ const deleteNewsFromDb = (articleId) => {
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'DELETE',
-      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/news/${articleId}.json"`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/news/${articleId}.json`,
     })
       .done(() => {
         resolve();
@@ -18,7 +18,6 @@ const deleteNewsFromDb = (articleId) => {
 const getNews = () => {
   return new Promise((resolve, reject) => {
     const uid = getUID();
-    console.log('from news', uid);
     const savedNewsArray = [];
     $.ajax({
       method: 'GET',
@@ -31,7 +30,6 @@ const getNews = () => {
             savedNewsArray.push(allNewsObj[fbKey]);
           });
         }
-        // console.log(savedNewsArray);
         resolve(savedNewsArray);
       })
       .fail((error) => {

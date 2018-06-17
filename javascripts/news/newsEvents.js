@@ -2,9 +2,17 @@ const news = require('./news');
 const newsDom = require('./newsDom');
 
 const deleteNewsEvent = () => {
-  $(document).on('click', '.deleteButton', (e) => {
+  $(document).on('click', '.deleteArticleButton', (e) => {
     const articleToDeleteId = $(e.target).closest('.article-container').data('firebaseId');
-    console.log('articleToDeleteId', articleToDeleteId);
+    console.log('from newsEvents', articleToDeleteId);
+    news.deleteNewsFromDb(articleToDeleteId)
+      .then(() => {
+        alert('article successfully removed');
+        getNewsEvent();
+      })
+      .catch((error) => {
+        console.error('error deleting article', error);
+      });
   });
 };
 

@@ -48,8 +48,8 @@ const printNews = (articleArray) => {
   articleArray.forEach((article) => {
     newsOutput += `<div class='row'>
                     <div class="col-sm-8">
-                      <div class="panel article-container">
-                        <a class="btn deleteButton">X</a>
+                      <div class="panel article-container" data-firebase-db-id="${article.id}">
+                        <a class="btn deleteArticleButton">X</a>
                         <div class="panel-heading">
                           <h3 class="article-title">${article.title}</h3>
                         </div>
