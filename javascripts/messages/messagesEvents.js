@@ -25,6 +25,7 @@ const postMessageToDBEvent = () => {
     };
     messagesFirebaseAPI.postMessageToDB(messageToSave)
       .then(() => {
+        $('#chat-input-message').val('');
         getMessage();
       })
       .catch((err) => {
@@ -54,7 +55,7 @@ const getMessageFromDBEvent = () => {
 // Delete message in database
 const deleteMessageFromDBEvent = () => {
   $(document).on('click','.chat-message-delete-btn', (e) => {
-    const messageId = $(e.target).closest('li').attr('id');
+    const messageId = $(e.target).closest('li').data('messageId');
     messagesFirebaseAPI.deleteMessageFromDB(messageId)
       .then(() => {
         getMessage();
@@ -71,7 +72,7 @@ let messageContent = '';
 
 const getMessageForEditEvent = () => {
   $(document).on('click','.chat-message-edit-btn', (e) => {
-    messageId = $(e.target).closest('li').attr('id');
+    messageId = $(e.target).closest('li').data('messageId');
     messageContent = $(e.target).closest('.chat-message-wrapper-other').find('.chat-message-detail').html();
     console.log(messageContent);
     $('#chat-message-content-edit').val(messageContent);

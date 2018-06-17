@@ -73,6 +73,7 @@ const deleteMessageFromDB = (messageId) => {
 // Edit exising message
 const editMessageInDB = (messageToEdit,messageId) => {
   return new Promise((resolve,reject) => {
+    messageToEdit.userUid = userId;
     $.ajax({
       method: 'PUT',
       url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/messages/${messageId}.json`,

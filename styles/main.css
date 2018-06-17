@@ -50,9 +50,12 @@ body {
 /* The Close Button */
 .close {
     color: white;
-    float: right;
+    /* float: right; */
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 1px;
 }
 
 .close:hover,
