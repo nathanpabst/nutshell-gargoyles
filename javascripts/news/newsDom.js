@@ -48,7 +48,8 @@ const printNews = (articleArray) => {
   articleArray.forEach((article) => {
     newsOutput += `<div class='row'>
                     <div class="col-sm-8">
-                      <div class="panel">
+                      <div class="panel article-container">
+                        <a class="btn deleteButton">X</a>
                         <div class="panel-heading">
                           <h3 class="article-title">${article.title}</h3>
                         </div>
@@ -56,7 +57,6 @@ const printNews = (articleArray) => {
                           <p class="article-synapsis">${article.synapsis}</p>
                           <p><a class="btn btn-default article-url" href="${article.url}" role="button" target="_blank">Read More</a></p>
                         </div>
-                        <div class="panel-footer">Panel footer</div>
                       </div>
                     </div>
                   </div>`;

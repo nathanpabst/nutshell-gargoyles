@@ -1,6 +1,13 @@
 const news = require('./news');
 const newsDom = require('./newsDom');
 
+const deleteNewsEvent = () => {
+  $(document).on('click', '.deleteButton', (e) => {
+    const articleToDeleteId = $(e.target).closest('.article-container').data('firebaseId');
+    console.log('articleToDeleteId', articleToDeleteId);
+  });
+};
+
 const getNewsEvent = () => {
   news.getNews()
     .then((articleArray) => {
@@ -16,7 +23,6 @@ const saveNewsEvent = () => {
     e.preventDefault();
     const articleArray = [];
     const articleInput = $('.article-title-input').val();
-    console.log('AriticleInput', articleInput);
     const synapsisInput = $('.article-synapsis-input').val();
     const urlInput = $('.article-url-input').val();
     const articleToAdd = {
@@ -47,4 +53,5 @@ module.exports = {
   saveNewsEvent,
   getNewsEvent,
   modalInit,
+  deleteNewsEvent,
 };
