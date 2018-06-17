@@ -1,4 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
+// const {getAllEventsEvent,} = require('./event/eventEvents');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
