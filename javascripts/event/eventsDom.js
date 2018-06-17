@@ -10,7 +10,7 @@ const createEventDom = (events) => {
     domString += `<h4 class = "eDate" >Date: ${event.eventDate}</h4>`;
     domString += `<p class = "eLocation">Location: ${event.eventLocation}</p>`;
     domString += `<button class="btn btn-primary btn-sm" id ="editEvent">Edit</button>`;
-    domString += `<button class='btn btn-warning btn-sm" id ="deleteEvent">Delete</button>`;
+    domString += `<button class="btn btn-warning btn-sm" id ="deleteEvent">Delete</button>`;
     domString += `</div>`;
     domString += `</div>`;
     // domString += `</div>`;

@@ -9,7 +9,7 @@ const formEvent = () => {
   $('#closeBtn').click(() => {
     $('#formContainer').addClass('hide');
     $('#outPutContainer').removeClass('hide');
-    updateEventsEvent();
+    // updateEventsEvent();
   });
 };
 
@@ -40,6 +40,20 @@ const getAllEventsEvent = () => {
     .catch((error) => {
       console.error('error in get all event:', error);
     });
+};
+
+const deleteEvent = () => {
+  $(document).on('click', '#deleteEvent', (e) => {
+    const eventToDeleteId = $(e.target).closest('.events').data('firebaseDbId');
+    console.log('event to delete id - data attribute:',eventToDeleteId);
+    eventFirebase.deleteEventFromDb(eventToDeleteId)
+      .then(() => {
+        getAllEventsEvent();
+      })
+      .catch((error) => {
+        console.error('error from delete event:', error);
+      });
+  });
 };
 
 const updateEventsEvent = () => {
@@ -76,6 +90,7 @@ const initializer = () => {
   formEvent();
   saveEvent();
   updateEventsEvent();
+  deleteEvent();
 };
 
 module.exports = {

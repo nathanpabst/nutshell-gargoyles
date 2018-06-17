@@ -66,9 +66,25 @@ const updateEventFb = (updatedEvent, eventsId) => {
   });
 };
 
+const deleteEventFromDb = (eventId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/events/${eventId}.json`,
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   // getFireBaseConfig,
   saveToFireBase,
   getEvent,
   updateEventFb,
+  deleteEventFromDb,
 };
