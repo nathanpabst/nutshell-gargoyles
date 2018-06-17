@@ -88,6 +88,12 @@ const editMessageInDB = (messageToEdit,messageId) => {
   });
 };
 
+// Match userid to the username
+const getUsername = () => {
+  getFirebaseConfig();
+
+};
+
 module.exports = {
   getFirebaseConfig,
   postMessageToDB,
