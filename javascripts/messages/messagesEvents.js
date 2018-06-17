@@ -39,7 +39,6 @@ const postMessageToDBEvent = () => {
 const getMessage = () => {
   messagesFirebaseAPI.getMessageFromDB()
     .then((messagesArray) => {
-      console.log(messagesArray);
       messagesDom.printMessages(messagesArray);
     })
     .catch((err) => {
@@ -100,6 +99,14 @@ const editMessageInDBEvent = () => {
   });
 };
 
+// get user name from user table then
+// match userid to the username
+const matchUserIdToUserNameEvent = () => {
+  $(document).on('click','#messagesBtn', () => {
+    messagesFirebaseAPI.getActiveUsername();
+  });
+};
+
 // keep the scroll bar on the bottom
 const scrollToBottomEvent = () => {
   $('#chat-message').animate({ scrollTop: $(document).height(), }, 'slow');
@@ -114,4 +121,5 @@ module.exports = {
   deleteMessageFromDBEvent,
   editMessageInDBEvent,
   getMessageForEditEvent,
+  matchUserIdToUserNameEvent,
 };

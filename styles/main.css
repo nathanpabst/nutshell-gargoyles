@@ -231,7 +231,7 @@ body {
 /* hover over message then display bottons */
 .chat-message-btn-group {
   display: none;
-  margin-top: 12px;
+  margin-top: 30px;
 }
 
 .chat-message-btn-group-me {
