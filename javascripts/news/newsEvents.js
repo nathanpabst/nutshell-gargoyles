@@ -3,7 +3,7 @@ const newsDom = require('./newsDom');
 
 const deleteNewsEvent = () => {
   $(document).on('click', '.deleteArticleButton', (e) => {
-    const articleToDeleteId = $(e.target).closest('.article-container').data('firebaseId');
+    const articleToDeleteId = $(e.target).closest('.article-container').data('firebaseDbId');
     console.log('from newsEvents', articleToDeleteId);
     news.deleteNewsFromDb(articleToDeleteId)
       .then(() => {
