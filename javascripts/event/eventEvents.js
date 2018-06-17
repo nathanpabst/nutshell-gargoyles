@@ -25,11 +25,11 @@ const saveEvent = () => {
       eventDate: eventDate,
       eventLocation: eventLocation,
     };
-    eventFirebase.saveToFireBase(eventToAdd)
-      .then(() => {
-        getAllEventsEvent();
-      });
-  });
+    eventFirebase.saveToFireBase(eventToAdd);
+      // .then(() => {
+      //   getAllEventsEvent();
+      // });
+    });
 };
 
 const getAllEventsEvent = () => {

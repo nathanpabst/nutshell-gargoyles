@@ -27,12 +27,14 @@ const saveToFireBase = (newEvent) => {
 };
 
 const getEvent = () => {
+  const uid = getUID();
+  console.log('getEvent:', uid);
   const allEventArray = [];
   return new Promise((resolve, reject) => {
     // getFireBaseConfig();
     $.ajax({
       method: 'GET',
-      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/events.json?orderBy="uid"&equalTo="${getUID()}"`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/events.json?orderBy="uid"&equalTo="${uid}"`,
     })
       .done((allEventObj) => {
         if (allEventObj !== null) {
