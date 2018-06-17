@@ -47,7 +47,7 @@ const updateEventsEvent = () => {
   $(document).on('click','#editEvent', (e) => {
     console.log('updateEvent:', e);
     const eventToUpdateId = $(e.target).closest('.events').data('firebaseDbId');
-    console.log(eventToUpdateId);
+    console.log('event to update id - data attribute:',eventToUpdateId);
     const eventToUpdateCard = $(e.target).closest('.events');
     const updateEvent = {
       eventName: eventToUpdateCard.find('.eName').text(),

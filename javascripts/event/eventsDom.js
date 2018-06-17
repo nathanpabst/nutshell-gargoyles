@@ -5,7 +5,7 @@ const createEventDom = (events) => {
   events.forEach((event) => {
     // domString += `<div class="row">`;
     domString += `<div class="col-md-6 col-md-offset-3">`;
-    domString += `<div class = "thumbnail events" data-firebaseDb-id"${event.id}">`;
+    domString += `<div class = "thumbnail events" data-firebase-db-id="${event.id}">`;
     domString += `<h2 class = "eName">Name of Event: ${event.eventName}</h2>`;
     domString += `<h4 class = "eDate" >Date: ${event.eventDate}</h4>`;
     domString += `<p class = "eLocation">Location: ${event.eventLocation}</p>`;
