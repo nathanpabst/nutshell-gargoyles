@@ -71,6 +71,7 @@ body {
 }
 
 .modal-body-for-chat {
+  max-width: 1280px;
   padding: 2px 16px;
   display: flex;
   justify-content: space-evenly;
@@ -81,6 +82,7 @@ body {
   height: 530px;
   display: inline-block;
   border: solid 1px red;
+  box-sizing:border-box;
 }
 
 /* Left Panel */
@@ -194,7 +196,7 @@ body {
 }
 
 #chat-message {
-  height: 80%;
+  height: 85%;
   overflow-y: scroll;
 }
 
@@ -296,7 +298,9 @@ body {
 }
 
 #chat-input {
-  height: 10%;
+  height: 5%;
+  box-sizing:border-box;
+  white-space: nowrap;
 }
 
 /* Add Animation */
@@ -369,4 +373,16 @@ body {
   border-radius: 5px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+/* Message Input Field */
+#chat-input-message {
+  width: 80%;
+  height: 100%;
+
+}
+
+#chat-input-send-btn {
+  width: 19%;
+  height: 100%;
 }
