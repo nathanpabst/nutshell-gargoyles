@@ -1,20 +1,35 @@
-let firebaseConfig = {};
-let uid = '';
+const {getUID, getFirebaseConfigObj,} = require('../firebaseAPI');
 
-const setConfig = (fbConfig) => {
-  firebaseConfig = fbConfig;
+const getNews = () => {
+  return new Promise((resolve, reject) => {
+    const uid = getUID();
+    console.log('from news', uid);
+    const savedNewsArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/news.json?orderBy="uid"&equalTo="${uid}"`,
+    })
+      .done((allNewsObj) => {
+        if (allNewsObj !== null) {
+          Object.keys(allNewsObj).forEach((fbKey) => {
+            allNewsObj[fbKey].id = fbKey;
+            savedNewsArray.push(allNewsObj[fbKey]);
+          });
+        }
+        resolve(savedNewsArray);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
 };
 
-const setUID = (userID) => {
-  uid = userID;
-};
-
-const saveNewsArticle = (newArticle) => {
-  newArticle.uid = uid;
+const saveNewsToDb = (newArticle) => {
+  newArticle.uid = getUID();
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'POST',
-      url: `${firebaseConfig.databaseURL}/news.json`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/news.json`,
       data: JSON.stringify(newArticle),
     })
       .done((uniqueKey) => {
@@ -27,7 +42,6 @@ const saveNewsArticle = (newArticle) => {
 };
 
 module.exports = {
-  saveNewsArticle,
-  setConfig,
-  setUID,
+  saveNewsToDb,
+  getNews,
 };
