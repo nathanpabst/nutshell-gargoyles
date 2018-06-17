@@ -27,6 +27,7 @@ const postMessageToDBEvent = () => {
       .then(() => {
         $('#chat-input-message').val('');
         getMessage();
+        scrollToBottomEvent();
       })
       .catch((err) => {
         console.error(err);
@@ -49,6 +50,7 @@ const getMessage = () => {
 const getMessageFromDBEvent = () => {
   $(document).on('click','#messagesBtn', () => {
     getMessage();
+    scrollToBottomEvent();
   });
 };
 
@@ -96,6 +98,12 @@ const editMessageInDBEvent = () => {
         console.error(err);
       });
   });
+};
+
+// keep the scroll bar on the bottom
+const scrollToBottomEvent = () => {
+  $('#chat-message').animate({ scrollTop: $(document).height(), }, 'slow');
+  return false;
 };
 
 module.exports = {
