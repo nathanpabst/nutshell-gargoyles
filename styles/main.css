@@ -10,6 +10,315 @@ body {
   top: 0;
 }
 
+/* ------------------- Message ------------------ */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* The Modal (background) */
+.modal-for-chat {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    -webkit-animation-name: fadeIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content-for-chat {
+    position: fixed;
+    bottom: 0;
+    background-color: #fefefe;
+    width: 100%;
+    height: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+.close {
+    color: white;
+    /* float: right; */
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 1px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header-for-chat {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body-for-chat {
+  padding: 2px 16px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#chat-left-panel,
+#chat-right-panel {
+  height: 530px;
+  display: inline-block;
+  border: solid 1px red;
+}
+
+/* Left Panel */
+
+#chat-left-panel {
+  width: 30%;
+}
+
+#chat-active-user {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#chat-active-user-left {
+  margin-left:10px;
+  width: 30%;
+}
+
+#chat-active-user-right{
+  margin-left:5px;
+  width: 69%;
+}
+
+#chat-active-user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid green;
+  margin-top: 24px;
+}
+
+#chat-active-user-name {
+  font-size: 2em;
+  margin-top: 12px;
+}
+
+#chat-active-user-moment {
+  width: 90%;
+  height: 65px;
+}
+
+.chat-friend-list-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.chat-friend-list-wrapper-left {
+  width: 30%;
+}
+
+.chat-friend-list-wrapper-right {
+  width: 69%;
+}
+
+.chat-friend-list-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid green;
+  margin-top: 12px;
+}
+
+.chat-friend-list-name {
+  display: block;
+  margin-top: 30px;
+}
+
+#chat-friend-list ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+#chat-active-user,
+#chat-search-bar,
+#chat-friend-list,
+#chat-friend-action {
+  width: 100%;
+  border: solid 1px black;
+}
+
+#chat-active-user {
+  height: 28%;
+}
+
+#chat-search-bar {
+  height: 7%;
+}
+
+#chat-friend-list {
+  height: 57%;
+}
+
+#chat-friend-action {
+  height: 8%;
+}
+
+/* Right Panel */
+#chat-right-panel {
+  width: 69%;
+}
+
+#chat-friend,
+#chat-message,
+#chat-input {
+  width: 100%;
+  border: solid 1px green;
+}
+
+#chat-friend {
+  height: 10%;
+}
+
+#chat-message {
+  height: 80%;
+  overflow-y: scroll;
+}
+
+.chat-message-wrapper {
+  width: 100%;
+  /* display: flex;
+  align-content: flex-start; */
+}
+
+#chat-message ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+}
+
+.chat-message-user-avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid green;
+  margin-top: 12px;
+}
+
+.chat-message-detail {
+  display: block;
+  max-width: 40%;
+  margin-top: 12px;
+}
+
+/* hover over message then display bottons */
+.chat-message-btn-group {
+  display: none;
+  margin-top: 12px;
+}
+
+.chat-message-btn-group-me {
+  float: left;
+}
+
+.chat-message-btn-group-other {
+  float: right;
+}
+
+.chat-message-detail:hover + .chat-message-btn-group-me,
+.chat-message-btn-group:hover {
+  display: inline-block;
+}
+
+.chat-message-edit-btn,
+.chat-message-delete-btn {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-width: 2px;
+}
+
+.chat-message-wrapper-me {
+  float: left;
+  width: 100%;
+}
+
+.chat-message-user-avatar-me {
+  float: left;
+  margin-left: 15px;
+}
+
+.chat-message-detail-me {
+  float: left;
+  border: #435f7a 2px solid;
+  background-color: #435f7a;
+  border-radius: 8px;
+  padding: 4px;
+  color: #f5f5f5;
+  margin-left: 20px;
+}
+
+.chat-message-wrapper-other {
+  float: right;
+  width: 100%;
+}
+
+.chat-message-user-avatar-other {
+  float: right;
+  margin-right: 15px;
+}
+
+.chat-message-detail-other {
+  float: right;
+  border: #f5f5f5 2px solid;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 4px;
+  color: black;
+  margin-right: 20px;
+}
+
+#chat-message-content-edit {
+  height: 200px;
+}
+
+#chat-input {
+  height: 10%;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {bottom: -300px; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0}
+    to {opacity: 1}
+}
 /* Landing Page Styles */
 
 .landing-page-elements {
@@ -39,17 +348,18 @@ body {
 }
 
 /*Tasks  Modal Styling*/
-.modal-header {
+.modal-header-for-chat {
     padding: 15px;
     border-bottom: 0px solid #e5e5e5;
 }
 
-.modal-footer {
+.modal-footer-for-chat {
     padding: 15px;
     text-align: right;
     border-top: 0px solid #e5e5e5;
 }
 
+<<<<<<< HEAD
 /* Friends Styles */
 
 .list-group {
@@ -58,4 +368,16 @@ body {
 
 .pending {
   background-color: red;
+=======
+/* Scroll Bar */
+#chat-message::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+
+#chat-message::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+>>>>>>> master
 }

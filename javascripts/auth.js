@@ -1,5 +1,10 @@
 const firebaseAPI = require('./firebaseAPI');
+<<<<<<< HEAD
 const friendsFirebase = require('./friends/friendsFirebase');
+=======
+// const messagesEvents = require('./messages/messagesEvents');
+// const {getAllEventsEvent,} = require('./event/eventEvents');
+>>>>>>> master
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
