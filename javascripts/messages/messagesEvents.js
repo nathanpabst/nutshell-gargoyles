@@ -108,7 +108,8 @@ const setActiveUsernameEvent = () => {
 
 // keep the scroll bar on the bottom
 const scrollToBottomEvent = () => {
-  $('#chat-message').animate({ scrollTop: $(document).height(), }, 'slow');
+  const height =  '10000px';
+  $('#chat-message').animate({ scrollTop: height, }, 'slow');
   return false;
 };
 
