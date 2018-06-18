@@ -2,14 +2,15 @@ const firebaseAPI = require('../firebaseAPI');
 
 let firebaseConfig = {};
 let userId = '';
-let users = [];
 let activeUsername = '';
+
+const getActiveUsername = () => {
+  return activeUsername;
+};
 
 const getFirebaseConfig = () => {
   firebaseConfig = firebaseAPI.getFirebaseConfigObj();
   userId = firebaseAPI.getUID();
-  // console.log(firebaseConfig.apiKeys.firebaseDB.databaseURL);
-  // console.log(userId);
 };
 
 // Post message to database
@@ -108,8 +109,6 @@ const getUsersFromDB = () => {
             usersArray.push(allUsers[fbKey]);
           });
         };
-        users = usersArray;
-        console.log(users);
         resolve(usersArray);
       })
       .fail((err) => {
@@ -118,14 +117,15 @@ const getUsersFromDB = () => {
   });
 };
 
-// Get active user's username
-const getActiveUsername = () => {
+// Set active user's username
+const setActiveUsername = () => {
   getUsersFromDB()
     .then((allUsers) => {
       allUsers.forEach((user) => {
         if (user.uid === userId) {
           activeUsername = user.username;
-          console.log(activeUsername);
+
+          $('#chat-active-user-name').html(activeUsername);
         };
       });
     })
@@ -141,5 +141,6 @@ module.exports = {
   deleteMessageFromDB,
   editMessageInDB,
   getUsersFromDB,
+  setActiveUsername,
   getActiveUsername,
 };

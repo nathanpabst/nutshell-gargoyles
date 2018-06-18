@@ -7,8 +7,6 @@ const firebaseAPI = require('../firebaseAPI');
 const printMessages = (messagesArray) => {
   const activeUserId = firebaseAPI.getUID();
   let domString = '';
-  console.log(messagesArray);
-  console.log(activeUserId);
   messagesArray.forEach((message) => {
     domString += `<li data-message-id="${message.id}" data-user-id='${message.userUid}'>`;
     if (activeUserId === message.userUid) {
@@ -30,10 +28,6 @@ const printMessages = (messagesArray) => {
       domString += `      <button type="button" class="btn btn-default chat-message-delete-btn"><span class="glyphicon glyphicon-trash"></span>Delete</button>`;
       domString += `    </div>`;
     };
-    // domString += `    <div class="btn-group chat-message-btn-group" role="group" aria-label="...">`;
-    // domString += `      <button type="button" class="btn btn-default chat-message-edit-btn" data-toggle="modal" data-target="#myModal-edit"><span class="glyphicon glyphicon-pencil"></span>Edit</button>`;
-    // domString += `      <button type="button" class="btn btn-default chat-message-delete-btn"><span class="glyphicon glyphicon-trash"></span>Delete</button>`;
-    // domString += `    </div>`;
     domString += `  </div>`;
     domString += `</li>`;
   });

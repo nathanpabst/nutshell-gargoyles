@@ -99,11 +99,10 @@ const editMessageInDBEvent = () => {
   });
 };
 
-// get user name from user table then
-// match userid to the username
-const matchUserIdToUserNameEvent = () => {
+// get user name from user table and set to variable
+const setActiveUsernameEvent = () => {
   $(document).on('click','#messagesBtn', () => {
-    messagesFirebaseAPI.getActiveUsername();
+    messagesFirebaseAPI.setActiveUsername();
   });
 };
 
@@ -121,5 +120,5 @@ module.exports = {
   deleteMessageFromDBEvent,
   editMessageInDBEvent,
   getMessageForEditEvent,
-  matchUserIdToUserNameEvent,
+  setActiveUsernameEvent,
 };
