@@ -18,9 +18,6 @@ const taskModalForm = () => {
   modalString += '<div class="row">';
   modalString += '<div class="modal-body input-group col-lg-6 col-lg-offset-3">';
   modalString += `<input id="input-modal "type="text" class="form-control grabTask" placeholder="Enter new task..." aria-label="...">`;
-  // modalString += '<span class="input-group-addon">';
-  // modalString += '<input type="checkbox" aria-label="...">';
-  // modalString += '</span>';
   modalString += '</div>';
   modalString += '</div>';
   modalString += '<div class="modal-footer">';
