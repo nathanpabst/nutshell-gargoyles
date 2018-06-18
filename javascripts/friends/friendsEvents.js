@@ -1,11 +1,27 @@
 const friendsFirebase = require('./friendsFirebase');
 const friendsDom = require('./friendsDom');
+const {getUID,} = require('../firebaseAPI');
 
 const addFriendBtnEvent = () => {
+  const uid = getUID();
+  const availableUsersArray = [];
   $('#add-friend-btn').click(() => {
     friendsFirebase.getUsers()
       .then((allUsersArray) => {
-        friendsDom.allUsersDom(allUsersArray);
+        friendsFirebase.getAllFriendsPendOrAcc()
+          .then((allFriendsArray) => {
+            allUsersArray.forEach((user) => {
+              allFriendsArray.forEach((friend) => {
+                if ((user.uid !== friend.friendUid) || (user.uid !== friend.userUid)) {
+                  if ((uid !== friend.friendUid) || (uid !== friend.friendUid)) {
+                    availableUsersArray.push(user);
+                  }
+                }
+              });
+            });
+          })
+          .catch();
+        friendsDom.allUsersDom(availableUsersArray);
         addThisFriendEvent();
       })
       .catch();

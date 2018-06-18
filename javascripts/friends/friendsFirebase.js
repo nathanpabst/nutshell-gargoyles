@@ -86,6 +86,27 @@ const deleteAFriend = (id) => {
   });
 };
 
+const getAllFriendsPendOrAcc = () => {
+  return new Promise((resolve, reject) => {
+    const allFriendsArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/friends.json`,
+    })
+      .done((allFriendsObj) => {
+        if (allFriendsObj !== null) {
+          Object.keys(allFriendsObj).forEach((key) => {
+            allFriendsArray.push(allFriendsObj[key]);
+          });
+        }
+        resolve(allFriendsArray);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
 const getAllFriendsAccepted = () => {
   return new Promise((resolve, reject) => {
     getUidFirebaseConfig();
@@ -174,6 +195,7 @@ module.exports = {
   requestAFriend,
   acceptAFriend,
   deleteAFriend,
+  getAllFriendsPendOrAcc,
   getAllFriendsAccepted,
   getAllFriendsPending,
   getOneUserName,
