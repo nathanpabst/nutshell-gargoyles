@@ -51,12 +51,12 @@ const getEvent = () => {
   });
 };
 
-const updateEventFb = (updatedEvent, eventsId) => {
-  updateEventFb.uid = getUID();
+const updateEventFb = (updatedEvent, eventId) => {
+  updatedEvent.uid = getUID();
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'PUT',
-      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/events/${eventsId}.json`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/events/${eventId}.json`,
       data: JSON.stringify(updatedEvent),
     })
       .done((modifiedEvent) => {

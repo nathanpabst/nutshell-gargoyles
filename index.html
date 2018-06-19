@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="styles/main.css">
   <title>Document</title>
 </head>
+
 <body>
   <button id="logoutBtn" class="hide">Log Out</button>
   <div id="dashboard"></div>
@@ -138,33 +141,62 @@
   <div id="events-page" class="module-container hide">
     <button class="btn btn-default go-home">Home</button>
     <button type="submit" class="btn btn-primary" id="addEventBtn">Add Event</button>
+    <!-- <button type="submit" class="btn btn-primary" id="editEventBtn">Edit Event</button> -->
     <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-center  hide" id ="formContainer">
-    <!-- <div id = "formContainer text-center hide"> -->
-        <div class="form-group form-horizontal"> <!-- Name field --> 
+      <div class="col-md-6 col-md-offset-3 text-center  hide" id="addFormContainer">
+        <!-- <div id = "formContainer text-center hide"> -->
+        <div class="form-group form-horizontal">
+          <!-- Name field -->
           <label class="control-label " for="name">Event Name</label>
           <input class="form-control" id="name" name="name" type="text">
         </div>
-        
-        <div class="form-group"> <!-- Email field -->
-          <label class="control-label " for="name">Event Date</label>
+
+        <div class="form-group">
+          <!-- Email field -->
+          <label class="control-label " for="date">Event Date</label>
           <input class="form-control" id="date" name="name" type="text">
         </div>
-        
-        <div class="form-group"> <!-- Subject field -->
-          <label class="control-label " for="subject">Event Location</label>
-          <input class="form-control" id="location" name="subject" type="text"/>
-        </div>
-       
+
         <div class="form-group">
-          <button class="btn btn-primary " id ="saveBtn" name="submit" type="submit">Save</button>
-          <button class="btn btn-primary " id ="closeBtn" name="close" type="close">Close</button>
-        </div> 
+          <!-- Subject field -->
+          <label class="control-label " for="subject">Event Location</label>
+          <input class="form-control" id="location" name="subject" type="text" />
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary " id="saveBtn" name="submit" type="submit">Save</button>
+          <button class="btn btn-primary " id="closeBtn" name="close" type="close">Close</button>
+        </div>
       </div>
-      </div> 
-        <div id = "outPutContainer"></div>   
+      <div class="col-md-6 col-md-offset-3 text-center  hide" id="editFormContainer">
+        <!-- <div id = "formContainer text-center hide"> -->
+        <div class="form-group form-horizontal">
+          <!-- Name field -->
+          <label class="control-label " for="editName">Event Name</label>
+          <input class="form-control" id="editName" name="name" type="text">
+        </div>
+
+        <div class="form-group">
+          <!-- Email field -->
+          <label class="control-label " for="date">Event Date</label>
+          <input class="form-control" id="editDate" name="name" type="text" >
+        </div>
+
+        <div class="form-group">
+          <!-- Subject field -->
+          <label class="control-label " for="subject">Event Location</label>
+          <input class="form-control" id="editLocation" name="subject" type="text">
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary " id="editSaveBtn" name="submit" type="submit">Save</button>
+          <button class="btn btn-primary " id="editCloseBtn" name="close" type="close">Close</button>
+        </div>
+      </div>
+    </div>
+    <div id="outPutContainer"></div>
   </div>
-          <!-- <div id = "outPutContainer"></div> -->
+  <!-- <div id = "outPutContainer"></div> -->
   <div id="tasks-page" class="module-container hide">
     <button class="btn btn-default go-home">Home</button>
   </div>
@@ -177,9 +209,12 @@
     <button class="btn btn-default go-home">Home</button>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <script src="./dist/app.js"></script>
 </body>
+
 </html>
