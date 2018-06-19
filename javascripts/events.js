@@ -1,7 +1,6 @@
 const firebaseAPI = require('./firebaseAPI');
-const newsEvents = require('./news/newsEvents');
 const eventEvent = require('./event/eventEvents');
-// const news = require('./news/newsMain');
+const news = require('./news/newsMain');
 
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {
@@ -20,7 +19,7 @@ const landingPageLinks = () => {
   $('#newsBtn').click(() => {
     $('#news-page').removeClass('hide');
     $('#landing-page').addClass('hide');
-    newsEvents.getNewsEvent();
+    news.initializeNews();
   });
   $('#friendsBtn').click(() => {
     $('#friends-page').removeClass('hide');
