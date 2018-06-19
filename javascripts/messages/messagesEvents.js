@@ -39,7 +39,6 @@ const postMessageToDBEvent = () => {
 const getMessage = () => {
   messagesFirebaseAPI.getMessageFromDB()
     .then((messagesArray) => {
-      console.log(messagesArray);
       messagesDom.printMessages(messagesArray);
     })
     .catch((err) => {
@@ -75,8 +74,7 @@ let messageContent = '';
 const getMessageForEditEvent = () => {
   $(document).on('click','.chat-message-edit-btn', (e) => {
     messageId = $(e.target).closest('li').data('messageId');
-    messageContent = $(e.target).closest('.chat-message-wrapper').find('.chat-message-detail').html();
-    console.log(messageContent);
+    messageContent = $(e.target).closest('.chat-message-wrapper').find('.chat-message-detail-me').html();
     $('#chat-message-content-edit').val(messageContent);
   });
 };
@@ -100,9 +98,17 @@ const editMessageInDBEvent = () => {
   });
 };
 
+// get user name from user table and set to variable
+const setActiveUsernameEvent = () => {
+  $(document).on('click','#messagesBtn', () => {
+    messagesFirebaseAPI.setActiveUsername();
+  });
+};
+
 // keep the scroll bar on the bottom
 const scrollToBottomEvent = () => {
-  $('#chat-message').animate({ scrollTop: $(document).height(), }, 'slow');
+  const height =  '10000px';
+  $('#chat-message').animate({ scrollTop: height, }, 'slow');
   return false;
 };
 
@@ -114,4 +120,5 @@ module.exports = {
   deleteMessageFromDBEvent,
   editMessageInDBEvent,
   getMessageForEditEvent,
+  setActiveUsernameEvent,
 };
