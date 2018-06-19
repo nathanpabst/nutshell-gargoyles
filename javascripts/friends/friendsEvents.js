@@ -1,27 +1,30 @@
 const friendsFirebase = require('./friendsFirebase');
 const friendsDom = require('./friendsDom');
-const {getUID,} = require('../firebaseAPI');
+// const {getUID,} = require('../firebaseAPI');
 
 const addFriendBtnEvent = () => {
-  const uid = getUID();
-  const availableUsersArray = [];
+  // const uid = getUID();
+  // const availableUsersArray = [];
   $('#add-friend-btn').click(() => {
     friendsFirebase.getUsers()
       .then((allUsersArray) => {
-        friendsFirebase.getAllFriendsPendOrAcc()
-          .then((allFriendsArray) => {
-            allUsersArray.forEach((user) => {
-              allFriendsArray.forEach((friend) => {
-                if ((user.uid !== friend.friendUid) || (user.uid !== friend.userUid)) {
-                  if ((uid !== friend.friendUid) || (uid !== friend.friendUid)) {
-                    availableUsersArray.push(user);
-                  }
-                }
-              });
-            });
-          })
-          .catch();
-        friendsDom.allUsersDom(availableUsersArray);
+        // friendsFirebase.getAllFriendsPendOrAcc()
+        //   .then((allFriendsArray) => {
+        //     // availableUsersArray = allUsersArray.filter((user) => {
+        //     //   if ((uid === user.uid) || (uid === user.uid));
+        //     // });
+        //     allUsersArray.forEach((user) => {
+        //       allFriendsArray.forEach((friend) => {
+        //         if ((user.uid !== friend.friendUid) && (user.uid !== friend.userUid)) {
+        //           if ((uid !== friend.friendUid) && (uid !== friend.friendUid)) {
+
+        //           }
+        //         }
+        //       });
+        //     });
+        //   })
+        //   .catch();
+        friendsDom.allUsersDom(allUsersArray);
         addThisFriendEvent();
       })
       .catch();

@@ -1,10 +1,7 @@
 const firebaseAPI = require('./firebaseAPI');
-<<<<<<< HEAD
 const friendsMain = require('./friends/friendsMain');
-=======
 const eventEvent = require('./event/eventEvents');
 const news = require('./news/newsMain');
->>>>>>> master
 
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {

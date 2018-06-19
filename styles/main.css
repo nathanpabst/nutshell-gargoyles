@@ -359,7 +359,6 @@ body {
     border-top: 0px solid #e5e5e5;
 }
 
-<<<<<<< HEAD
 /* Friends Styles */
 
 .list-group {
@@ -368,7 +367,7 @@ body {
 
 .pending {
   background-color: red;
-=======
+
 /* Scroll Bar */
 #chat-message::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -379,5 +378,4 @@ body {
   border-radius: 5px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
->>>>>>> master
 }

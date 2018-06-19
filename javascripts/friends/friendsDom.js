@@ -1,4 +1,4 @@
-// const friendsFirebase = require('./friendsFirebase');
+const friendsFirebase = require('./friendsFirebase');
 const {getUID,} = require('../firebaseAPI');
 
 const outputDiv = $('#all-users-div');
@@ -24,23 +24,37 @@ const allUsersDom = (allUsersArray) => {
 const displayFriends = (friendsArray) => {
   const uid = getUID();
   let domString = '';
+  let identifier = '';
   friendsArray.forEach((friend) => {
     // const friendUsername = friendsFirebase.getOneUserName(friend.friendUid);
     if (uid === friend.userUid) {
-      const identifier = friend.friendUid;
-      domString +=  `<div class="acceptedFriend" data-id="${friend.id}">`;
-      domString +=    `<p>${identifier}</p>`;
-      domString +=    `<button class="btn btn-default unFriendBtn">Un-Friend</button>`;
-      domString +=  `</div>`;
+      friendsFirebase.getOneUserName(friend.friendUid)
+        .then((username) => {
+          identifier = username;
+          domString +=  `<div class="acceptedFriend" data-id="${friend.id}">`;
+          domString +=    `<p>${identifier}</p>`;
+          domString +=    `<button class="btn btn-default unFriendBtn">Un-Friend</button>`;
+          domString +=  `</div>`;
+          printFriendsToDom(domString);
+        })
+        .catch((error) => {
+          console.error('cannot access username', error);
+        });
     } else if (uid === friend.friendUid) {
-      const identifier = friend.userUid;
-      domString +=  `<div class="acceptedFriend" data-id="${friend.id}">`;
-      domString +=    `<p>${identifier}</p>`;
-      domString +=    `<button class="btn btn-default unFriendBtn">Un-Friend</button>`;
-      domString +=  `</div>`;
+      friendsFirebase.getOneUserName(friend.friendUid)
+        .then((username) => {
+          identifier = username;
+          domString +=  `<div class="acceptedFriend" data-id="${friend.id}">`;
+          domString +=    `<p>${identifier}</p>`;
+          domString +=    `<button class="btn btn-default unFriendBtn">Un-Friend</button>`;
+          domString +=  `</div>`;
+          printFriendsToDom(domString);
+        })
+        .catch((error) => {
+          console.error('cannot access username', error);
+        });
     }
   });
-  printFriendsToDom(domString);
 };
 
 const printFriendsToDom = (string) => {
@@ -50,25 +64,32 @@ const printFriendsToDom = (string) => {
 const displayFriendsPending = (pendingFriendsArray) => {
   const uid = getUID();
   let domString = '';
+  let identifier = '';
   pendingFriendsArray.forEach((friend) => {
     // const friendUsername = friendsFirebase.getOneUserName(friend.friendUid);
     if (uid === friend.friendUid) {
-      const identifier = friend.userUid;
-      domString +=  `<div class="friendRequest" data-user-uid="${friend.userUid}" data-friend-uid="${friend.friendUid}" data-id="${friend.id}">`;
-      domString +=    `<p>${identifier}</p>`;
-      domString +=    `<button class="btn btn-default acceptFriend">Accept</button>`;
-      domString +=    `<button class="btn btn-default declineFriend">Decline</button>`;
-      domString +=  `</div>`;
+      friendsFirebase.getOneUserName(friend.userUid)
+        .then((username) => {
+          identifier = username;
+          domString +=  `<div class="friendRequest" data-user-uid="${friend.userUid}" data-friend-uid="${friend.friendUid}" data-id="${friend.id}">`;
+          domString +=    `<p>${identifier}</p>`;
+          domString +=    `<button class="btn btn-default acceptFriend">Accept</button>`;
+          domString +=    `<button class="btn btn-default declineFriend">Decline</button>`;
+          domString +=  `</div>`;
+          printPendingFriendsToDom(domString);
+        });
     } else if (uid === friend.userUid) {
-      const identifier = friend.friendUid;
-      domString +=  `<div class="">`;
-      domString +=    `<p>${identifier}</p>`;
-      domString +=    `<p>Waiting for friend to accept</p>`;
-      domString +=  `</div>`;
+      friendsFirebase.getOneUserName(friend.friendUid)
+        .then((username) => {
+          identifier = username;
+          domString +=  `<div class="">`;
+          domString +=    `<p>${identifier}</p>`;
+          domString +=    `<p>Waiting for friend to accept</p>`;
+          domString +=  `</div>`;
+          printPendingFriendsToDom(domString);
+        });
     }
-
   });
-  printPendingFriendsToDom(domString);
 };
 
 const printPendingFriendsToDom = (string) => {
