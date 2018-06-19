@@ -2,7 +2,7 @@ const apiKeys = require('./apiKeys');
 const events = require('./events');
 const messagesEvents = require('./messages/messagesEvents');
 const eventMain = require('./event/eventsMain');
-const {getMessage,scrollToBottomEvent,} = require('./messages/messagesEvents');
+// const {getMessage,scrollToBottomEvent,} = require('./messages/messagesEvents');
 // const tasks = require ('./tasks/taskMain');
 const friendsEvents = require('./friends/friendsEvents');
 // const {getMessage,scrollToBottomEvent,} = require('./messages/messagesEvents');
@@ -11,7 +11,7 @@ const initializeApp = () => {
   apiKeys.getFirebaseConfig();
   events.authEvents();
   events.landingPageLinks();
-  news.initializeNews();
+  // news.initializeNews();
   friendsEvents.showPendingFriendRequests();
   messagesEvents.activateChatModalEvent();
   messagesEvents.deactivateChatModalEvent();
