@@ -18,11 +18,12 @@ const saveTasks = (newTask) => {
 };
 
 const getSavedTasks = () => {
+  const uid = getUID();
+  const taskArray = [];
   return new Promise ((resolve, reject) => {
-    const taskArray = [];
     $.ajax({
       method: 'GET' ,
-      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json?orderBy="tasksUid"&equalTo="${uid}"`,
     })
       .done((allTasksObj) => {
         if (allTasksObj !== null) {
@@ -40,7 +41,6 @@ const getSavedTasks = () => {
 };
 
 const deleteTask = (taskId) => {
-  // taskId.uid = getUID();
   return new Promise((resolve, reject) => {
     $.ajax({
       method: 'DELETE',
