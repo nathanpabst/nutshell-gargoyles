@@ -252,88 +252,63 @@
 
   <div id="events-page" class="module-container hide">
     <button class="btn btn-default go-home">Home</button>
-    <div id="modalContainer">
-      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm">
-        Record Event
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">
-                <span aria-hidden="true">&times;</span>
-                <span class="sr-only">Close</span>
-              </button>
-              <h4 class="modal-title" id="myModalLabel">
-                Events
-              </h4>
-            </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-
-              <form role="form">
-                <div class="form-group">
-                  <label for="eventName">Name of Event</label>
-                  <input type="text" class="form-control" id="eventName" placeholder="Name" />
-                </div>
-                <div class="form-group">
-                  <label for="eventDate">Date</label>
-                  <input type="text" class="form-control" id="eventDate" placeholder="Date" />
-                </div>
-                <div class="form-group">
-                  <label for="eventLocation">Location</label>
-                  <input type="text" class="form-control" id="eventLocation" placeholder="Location" />
-                </div>
-                <button type="edit" class="btn btn-default">Edit</button>
-              </form>
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">
-                Close
-              </button>
-              <button type="button" class="btn btn-primary" id="saveBtn">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="outPutContainer"></div>
-    </div>
     <button type="submit" class="btn btn-primary" id="addEventBtn">Add Event</button>
+    <!-- <button type="submit" class="btn btn-primary" id="editEventBtn">Edit Event</button> -->
     <div class="row">
-    <div class="col-md-6 col-md-offset-3 text-center  hide" id ="formContainer">
-    <!-- <div id = "formContainer text-center hide"> -->
-        <div class="form-group form-horizontal"> <!-- Name field -->
+      <div class="col-md-6 col-md-offset-3 text-center  hide" id="addFormContainer">
+        <!-- <div id = "formContainer text-center hide"> -->
+        <div class="form-group form-horizontal">
+          <!-- Name field -->
           <label class="control-label " for="name">Event Name</label>
-          <input class="form-control" id="name" name="name" type="text">
-        </div>
-
-        <div class="form-group"> <!-- Email field -->
-          <label class="control-label " for="name">Event Date</label>
-          <input class="form-control" id="date" name="name" type="text">
-        </div>
-
-        <div class="form-group"> <!-- Subject field -->
-          <label class="control-label " for="subject">Event Location</label>
-          <input class="form-control" id="location" name="subject" type="text"/>
+          <input class="form-control" id="name" name="name" type="text" placeholder="Event Name:">
         </div>
 
         <div class="form-group">
-          <button class="btn btn-primary " id ="saveBtn" name="submit" type="submit">Save</button>
-          <button class="btn btn-primary " id ="closeBtn" name="close" type="close">Close</button>
+          <!-- Email field -->
+          <label class="control-label " for="date">Event Date</label>
+          <input class="form-control" id="date" name="name" type="text" placeholder="Event Date:">
+        </div>
+
+        <div class="form-group">
+          <!-- Subject field -->
+          <label class="control-label " for="subject">Event Location</label>
+          <input class="form-control" id="location" name="subject" type="text" placeholder="Event Location:"/>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary " id="saveBtn" name="submit" type="submit">Save</button>
+          <button class="btn btn-primary " id="closeBtn" name="close" type="close">Close</button>
         </div>
       </div>
+      <div class="col-md-6 col-md-offset-3 text-center  hide" id="editFormContainer">
+        <!-- <div id = "formContainer text-center hide"> -->
+        <div class="form-group form-horizontal">
+          <!-- Name field -->
+          <label class="control-label " for="editName">Event Name</label>
+          <input class="form-control" id="editName" name="name" type="text">
+        </div>
+
+        <div class="form-group">
+          <!-- Email field -->
+          <label class="control-label " for="date">Event Date</label>
+          <input class="form-control" id="editDate" name="name" type="text" >
+        </div>
+
+        <div class="form-group">
+          <!-- Subject field -->
+          <label class="control-label " for="subject">Event Location</label>
+          <input class="form-control" id="editLocation" name="subject" type="text">
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary " id="editSaveBtn" name="submit" type="submit">Save</button>
+          <button class="btn btn-primary " id="editCloseBtn" name="close" type="close">Close</button>
+        </div>
       </div>
-        <div id = "outPutContainer"></div>
+    </div>
+    <div id="outPutContainer"></div>
   </div>
-          <!-- <div id = "outPutContainer"></div> -->
+ 
   <div id="tasks-page" class="module-container hide">
     <button class="btn btn-default go-home">Home</button>
   </div>
