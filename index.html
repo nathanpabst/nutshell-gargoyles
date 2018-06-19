@@ -306,7 +306,7 @@
         </div>
 
         <div class="form-group">
-          <button class="btn btn-primary " id="saveBtn" name="submit" type="submit">Save</button>
+          <button class="btn btn-primary " id="saveBtn" name="submit" type="submit" data-dismiss="form">Save</button>
           <button class="btn btn-primary " id="closeBtn" name="close" type="close">Close</button>
         </div>
       </div>
@@ -337,15 +337,23 @@
       </div>
     </div>
     <div id="outPutContainer"></div>
+    <div id="friendsConainer"></div>
   </div>
 
   <div id="tasks-page" class="module-container hide">
     <!-- <button class="btn btn-default go-home">Home</button> -->
   </div>
+    <!-- <div id = "outPutContainer"></div> -->
+    <div id="tasks-page" class="module-container hide">
+      <button class="btn btn-default go-home">Home</button>
+    </div>
 
-  <div id="news-page" class="module-container hide">
-    <!-- <button class="btn btn-default go-home">Home</button> -->
-  </div>
+    <div id="news-page" class="module-container hide">
+      <button class="btn btn-default go-home">Home</button>
+      <div id="addArticleButton"></div>
+      <div id="modalDiv"></div>
+      <div id="newsContainer"></div>
+    </div>
 
   <div id="friends-page" class="module-container text-center hide">
     <!-- <button class="btn btn-default go-home">Home</button> -->
@@ -370,12 +378,12 @@
 
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-  <script src="./dist/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="./dist/app.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,23 @@
 const {getUID, getFirebaseConfigObj,} = require('../firebaseAPI');
 
+const deleteNewsFromDb = (articleId) => {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/news/${articleId}.json`,
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 const getNews = () => {
   return new Promise((resolve, reject) => {
     const uid = getUID();
-    console.log('from news', uid);
     const savedNewsArray = [];
     $.ajax({
       method: 'GET',
@@ -44,4 +58,5 @@ const saveNewsToDb = (newArticle) => {
 module.exports = {
   saveNewsToDb,
   getNews,
+  deleteNewsFromDb,
 };

@@ -1,6 +1,21 @@
 const news = require('./news');
 const newsDom = require('./newsDom');
 
+const deleteNewsEvent = () => {
+  $(document).on('click', '.deleteArticleButton', (e) => {
+    const articleToDeleteId = $(e.target).closest('.article-container').data('firebaseDbId');
+    console.log('from newsEvents', articleToDeleteId);
+    news.deleteNewsFromDb(articleToDeleteId)
+      .then(() => {
+        alert('article successfully removed');
+        getNewsEvent();
+      })
+      .catch((error) => {
+        console.error('error deleting article', error);
+      });
+  });
+};
+
 const getNewsEvent = () => {
   news.getNews()
     .then((articleArray) => {
@@ -14,9 +29,10 @@ const getNewsEvent = () => {
 const saveNewsEvent = () => {
   $(document).on('click', '.saveButton', (e) => {
     e.preventDefault();
-    const articleInput = $('.article-title').val();
-    const synapsisInput = $('.article-synapsis').val();
-    const urlInput = $('.article-url').val();
+    const articleArray = [];
+    const articleInput = $('.article-title-input').val();
+    const synapsisInput = $('.article-synapsis-input').val();
+    const urlInput = $('.article-url-input').val();
     const articleToAdd = {
       title: articleInput,
       synapsis: synapsisInput,
@@ -25,6 +41,9 @@ const saveNewsEvent = () => {
     news.saveNewsToDb(articleToAdd)
       .then(() => {
         alert('article saved');
+        getNewsEvent();
+        articleArray.push(articleToAdd);
+        newsDom.printNews(articleArray);
       })
       .catch((error) => {
         console.error('error in saving article', error);
@@ -42,4 +61,5 @@ module.exports = {
   saveNewsEvent,
   getNewsEvent,
   modalInit,
+  deleteNewsEvent,
 };
