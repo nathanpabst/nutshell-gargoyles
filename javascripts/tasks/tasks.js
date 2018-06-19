@@ -22,7 +22,7 @@ const getSavedTasks = () => {
     const taskArray = [];
     $.ajax({
       method: 'GET' ,
-      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json?`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json`,
     })
       .done((allTasksObj) => {
         if (allTasksObj !== null) {
@@ -39,7 +39,24 @@ const getSavedTasks = () => {
   });
 };
 
+const deleteTask = (taskId) => {
+  // taskId.uid = getUID();
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      method: 'DELETE',
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task/${taskId}.json`,
+    })
+      .done(() => {
+        resolve();
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   saveTasks,
   getSavedTasks,
+  deleteTask,
 };

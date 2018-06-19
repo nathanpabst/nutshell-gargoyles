@@ -1,14 +1,17 @@
+let modalDomString = '';
+
 const taskButton = () => {
   let buttonString = '';
   buttonString += '<div class="create-task-btn">';
-  buttonString += '<button id= "task-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Create a Task</button >';
+  buttonString += '<button id= "task-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-task">Create a Task</button >';
   buttonString += '</div>';
   printToDom('#tasks-page', buttonString);
 };
 
 const taskModalForm = () => {
+  console.log('test');
   let modalString = '';
-  modalString += '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel task">';
+  modalString += '<div class="modal fade" id="myModal-task" tabindex="-1" role="dialog" aria-labelledby="myModalLabel task">';
   modalString += '<div class="modal-dialog" role="document">';
   modalString += '<div class="modal-content">';
   modalString += '<div class="modal-header">';
@@ -22,11 +25,12 @@ const taskModalForm = () => {
   modalString += '</div>';
   modalString += '<div class="modal-footer">';
   modalString += '<button id="close-task" type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-  modalString += '<button id="task-save-btn" type="button" class="btn btn-primary ">Save Task</button>';
+  modalString += '<button id="task-save-btn" type="submit" class="btn btn-primary">Save Task</button>';
   modalString += '</div>';
   modalString += '</div>';
   modalString += '</div>';
   modalString += '</div>';
+  modalDomString = modalString;
   printToDom('#tasks-page', modalString);
 };
 
@@ -34,7 +38,7 @@ const savedTaskDom = (taskArray) => {
   let taskString = '';
   taskArray.forEach((task) => {
     taskString += `<div class="col-sm-6 col-md-4 text-center"">`;
-    taskString += `<div class="thumbnail">`;
+    taskString += `<div class="thumbnail tasks" data-firebase-db-id="${task.id}">`;
     taskString += '<span class="input-group-addon">';
     taskString += '<input type="checkbox" aria-label="...">';
     taskString += '</span>';
@@ -47,6 +51,9 @@ const savedTaskDom = (taskArray) => {
 };
 
 const printToDom = (id, string) => {
+  $('#tasks-page').html('');
+  $('#tasks-page').append(`<div class="create-task-btn"><button id= "task-button" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal-task">Create a Task</button ></div>`);
+  $('#tasks-page').append(modalDomString);
   $(id).append(string);
 };
 
