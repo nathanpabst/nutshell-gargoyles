@@ -100,6 +100,118 @@
     <!-- Registration Page Ends Here -->
   </div>
 
+  <div id="messages-page">
+    <!-- The Modal -->
+    <div id="chat-modal" class="modal-for-chat">
+      <!-- Modal content -->
+      <div class="modal-content-for-chat">
+        <div class="modal-header-for-chat">
+          <span class="close" id="close-chat-modal-btn">&times;</span>
+        </div>
+        <div class="modal-body-for-chat">
+          <div id="chat-left-panel">
+            <div id="chat-active-user">
+              <div id="chat-active-user-left">
+                <img id="chat-active-user-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg">
+              </div>
+              <div id="chat-active-user-right">
+                <div id="chat-active-user-name">Doggy Doggy</div>
+                <div id="chat-active-user-status">
+                  <span class="glyphicon glyphicon-triangle-bottom"></span>online</div>
+                <textarea id="chat-active-user-moment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam eiujaldjflajslkdf;ksd;fk;s kma lakdl kadlf</textarea>
+              </div>
+            </div>
+            <div id="chat-search-bar">
+              <div class="input-group">
+                <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+                <input type="text" class="form-control" placeholder="Search Friend" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div id="chat-friend-list">
+              <ul>
+                <li>
+                  <div class="chat-friend-list-wrapper">
+                    <div class="chat-friend-list-wrapper-left">
+                      <img class="chat-friend-list-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg"
+                        alt="">
+                    </div>
+                    <div class="chat-friend-list-wrapper-right">
+                      <span class="chat-friend-list-name">NAME1</span>
+                      <p class="chat-friend-list-message">Message</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="chat-friend-list-wrapper">
+                    <div class="chat-friend-list-wrapper-left">
+                      <img class="chat-friend-list-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg"
+                        alt="">
+                    </div>
+                    <div class="chat-friend-list-wrapper-right">
+                      <span class="chat-friend-list-name">NAME1</span>
+                      <p class="chat-friend-list-message">Message</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="chat-friend-list-wrapper-left">
+                    <img class="chat-friend-list-avatar" src="https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg"
+                      alt="">
+                  </div>
+                  <div class="chat-friend-list-wrapper-right">
+                    <span class="chat-friend-list-name">NAME1</span>
+                    <p class="chat-friend-list-message">Message</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="chat-friend-action"></div>
+          </div>
+          <div id="chat-right-panel">
+            <div id="chat-friend"></div>
+            <div id="chat-message">
+              <ul id="chat-messagge-list">
+                <!-- Chat Messages Go Here -->
+              </ul>
+            </div>
+            <div id="chat-input">
+              <input type="text" name="" id="chat-input-message">
+              <button id="chat-input-send-btn"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- The Modal Ends -->
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal-edit">
+      <div class="modal-dialog" role="document">
+        <form>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title">Editing Message...</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <textarea class="form-control" id="chat-message-content-edit" placeholder="Please Type In Your New Message Here..." required></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id="chat-message-save-change-btn" data-dismiss="modal">Save Change</button>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </form>
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </div>
+
   <div id="landing-page" class="hide">
     <div class="landing-page-elements">
       <div class="row">
@@ -140,6 +252,60 @@
 
   <div id="events-page" class="module-container hide">
     <button class="btn btn-default go-home">Home</button>
+    <div id="modalContainer">
+      <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm">
+        Record Event
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModalNorm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">&times;</span>
+                <span class="sr-only">Close</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">
+                Events
+              </h4>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+
+              <form role="form">
+                <div class="form-group">
+                  <label for="eventName">Name of Event</label>
+                  <input type="text" class="form-control" id="eventName" placeholder="Name" />
+                </div>
+                <div class="form-group">
+                  <label for="eventDate">Date</label>
+                  <input type="text" class="form-control" id="eventDate" placeholder="Date" />
+                </div>
+                <div class="form-group">
+                  <label for="eventLocation">Location</label>
+                  <input type="text" class="form-control" id="eventLocation" placeholder="Location" />
+                </div>
+                <button type="edit" class="btn btn-default">Edit</button>
+              </form>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">
+                Close
+              </button>
+              <button type="button" class="btn btn-primary" id="saveBtn">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="outPutContainer"></div>
+    </div>
     <button type="submit" class="btn btn-primary" id="addEventBtn">Add Event</button>
     <!-- <button type="submit" class="btn btn-primary" id="editEventBtn">Edit Event</button> -->
     <div class="row">
@@ -205,8 +371,23 @@
     <button class="btn btn-default go-home">Home</button>
   </div>
 
-  <div id="friends-page" class="module-container hide">
+  <div id="friends-page" class="module-container text-center hide">
     <button class="btn btn-default go-home">Home</button>
+
+    <h2><u>Your Friends</u></h2>
+
+    <div id="your-friends"></div>
+
+    <h2><u>Friends Requests Pending</u></h2>
+
+    <div id="pending-friends"></div>
+
+    <button id="add-friend-btn" type="button" class="btn btn-primary btn-lg">
+      Add a Friend
+    </button>
+
+    <div id="all-users-div" class="text-center"></div>
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

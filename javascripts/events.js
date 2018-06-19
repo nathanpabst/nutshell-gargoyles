@@ -1,4 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
+const friendsMain = require('./friends/friendsMain');
 const eventEvent = require('./event/eventEvents');
 const news = require('./news/newsMain');
 
@@ -24,6 +25,7 @@ const landingPageLinks = () => {
   $('#friendsBtn').click(() => {
     $('#friends-page').removeClass('hide');
     $('#landing-page').addClass('hide');
+    friendsMain.initializer();
   });
   $('.go-home').click((e) => {
     $(e.target).closest('.module-container').addClass('hide');
