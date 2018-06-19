@@ -71,6 +71,7 @@ body {
 }
 
 .modal-body-for-chat {
+  margin: auto;
   max-width: 1280px;
   padding: 2px 16px;
   display: flex;
@@ -348,7 +349,7 @@ body {
 /* Landing Page Styles */
 
 .landing-page-elements {
-  margin: 200px auto 0;
+  margin: auto 0;
 }
 
 .dashboard-element {

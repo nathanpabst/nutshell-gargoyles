@@ -17,6 +17,7 @@ const initializeApp = () => {
   messagesEvents.getMessageForEditEvent();
   messagesEvents.editMessageInDBEvent();
   messagesEvents.setActiveUsernameEvent();
+  messagesEvents.backToMainPage();
 };
 
 const eventInitialize = () => {

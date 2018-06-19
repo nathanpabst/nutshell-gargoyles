@@ -17,6 +17,11 @@ const checkLoginStatus = () => {
       $('#authBtn').addClass('hide');
       $('.go-home').click((e) => {
         $(e.target).closest('.module-container').addClass('hide');
+        $('#messages-page').addClass('hide');
+        $('#tasks-page').addClass('hide');
+        $('#news-page').addClass('hide');
+        $('#friends-page').addClass('hide');
+        $('#events-page').addClass('hide');
         $('#landing-page').removeClass('hide');
       });
       friendsFirebase.getUidFirebaseConfig();
