@@ -17,10 +17,6 @@ const initializeApp = () => {
   messagesEvents.deactivateChatModalEvent();
   messagesEvents.postMessageToDBEvent();
   messagesEvents.getMessageFromDBEvent();
-  // window.setInterval(() => {
-  //   getMessage();
-  //   scrollToBottomEvent();
-  // }, 1000);
   messagesEvents.deleteMessageFromDBEvent();
   messagesEvents.getMessageForEditEvent();
   messagesEvents.editMessageInDBEvent();
