@@ -1,7 +1,7 @@
 const addArticleButton = () => {
   let output = '';
   output += `<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newsModal">Add an article</button>`;
-  printToDom(output);
+  printToDom(output, '#addArticleButton');
 };
 
 const printModalForm = () => {
@@ -38,7 +38,7 @@ const printModalForm = () => {
                 </div>
               </div>
             </div>`;
-  printToDom(output);
+  printToDom(output, '#modalDiv');
 };
 
 const printNews = (articleArray) => {
@@ -64,8 +64,8 @@ const printNews = (articleArray) => {
   print(newsOutput);
 };
 
-const printToDom = (stringz) => {
-  $('#news-page').append(stringz);
+const printToDom = (stringz, whereToPrint) => {
+  $(whereToPrint).html(stringz);
 };
 
 const print = (newsStringz) => {
