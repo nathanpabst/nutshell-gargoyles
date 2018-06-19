@@ -23,7 +23,7 @@ const getSavedTasks = () => {
   return new Promise ((resolve, reject) => {
     $.ajax({
       method: 'GET' ,
-      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json?orderBy="tasksUid"&equalTo="${uid}"`,
+      url: `${getFirebaseConfigObj().apiKeys.firebaseDB.databaseURL}/task.json?orderBy="uid"&equalTo="${uid}"`,
     })
       .done((allTasksObj) => {
         if (allTasksObj !== null) {
