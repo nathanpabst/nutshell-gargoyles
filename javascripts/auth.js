@@ -1,7 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
 const friendsFirebase = require('./friends/friendsFirebase');
-// const messagesEvents = require('./messages/messagesEvents');
-// const {getAllEventsEvent,} = require('./event/eventEvents');
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {
@@ -16,8 +14,12 @@ const checkLoginStatus = () => {
       $('#news-page').addClass('hide');
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
+      $('#authBtn').addClass('hide');
+      $('.go-home').click((e) => {
+        $(e.target).closest('.module-container').addClass('hide');
+        $('#landing-page').removeClass('hide');
+      });
       friendsFirebase.getUidFirebaseConfig();
-      console.log('I am in!');
     } else {
       // No user is signed in.
       $('#authScreen').removeClass('hide');
@@ -28,7 +30,8 @@ const checkLoginStatus = () => {
       $('#news-page').addClass('hide');
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
-      console.log('I am out');
+      $('#authBtn').removeClass('hide');
+      $('.go-home').unbind('click');
     };
   });
 };
