@@ -1,4 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
+const tasks = require('./tasks/taskMain');
 const friendsMain = require('./friends/friendsMain');
 const eventEvent = require('./event/eventEvents');
 const news = require('./news/newsMain');
@@ -16,6 +17,7 @@ const landingPageLinks = () => {
   $('#tasksBtn').click(() => {
     $('#tasks-page').removeClass('hide');
     $('#landing-page').addClass('hide');
+    tasks.initializeTaskApp();
   });
   $('#newsBtn').click(() => {
     $('#news-page').removeClass('hide');
@@ -27,13 +29,10 @@ const landingPageLinks = () => {
     $('#landing-page').addClass('hide');
     friendsMain.initializer();
   });
-  $('.go-home').click((e) => {
-    $(e.target).closest('.module-container').addClass('hide');
-    $('#landing-page').removeClass('hide');
-  });
 };
 
 const authEvents = () => {
+  // Sign in
   $('#signin-btn').click((e) => {
     e.preventDefault();
     const email = $('#inputEmail').val();
@@ -67,7 +66,6 @@ const authEvents = () => {
           const errorMessage = 'Sorry, that username already exists. Please choose a different username.';
           $('#register-error-msg').text(errorMessage);
           $('#register-error').removeClass('hide');
-          console.error('Error registering');;
         } else {
           firebase.auth().createUserWithEmailAndPassword(email, pass)
             .then((data) => {
@@ -89,21 +87,6 @@ const authEvents = () => {
       .catch((err) => {
         console.error('Error with checking username against database', err);
       });
-    // firebase.auth().createUserWithEmailAndPassword(email, pass)
-    //   .then((data) => {
-    //     const newUserObj = {
-    //       username: userNameEntered,
-    //       uid: data.user.uid,
-    //     };
-    //     firebaseAPI.saveUserNameOnRegister(newUserObj);
-    //   })
-    //   .catch((error) => {
-    //     // Handle Errors here.
-    //     $('#register-error-msg').text(error.message);
-    //     $('#register-error').removeClass('hide');
-    //     const errorMessage = error.message;
-    //     console.error(errorMessage);
-    //   });
   });
 
   // switch to registration page

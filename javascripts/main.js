@@ -2,25 +2,27 @@ const apiKeys = require('./apiKeys');
 const events = require('./events');
 const messagesEvents = require('./messages/messagesEvents');
 const eventMain = require('./event/eventsMain');
-
-const tasks = require ('./tasks/taskMain');
+const {getMessage,scrollToBottomEvent,} = require('./messages/messagesEvents');
 
 const initializeApp = () => {
   apiKeys.getFirebaseConfig();
   events.authEvents();
-  tasks.initializeTaskApp();
   events.landingPageLinks();
   messagesEvents.activateChatModalEvent();
   messagesEvents.deactivateChatModalEvent();
   messagesEvents.postMessageToDBEvent();
-  messagesEvents.getMessageFromDBEvent();
+  window.setInterval(() => {
+    getMessage();
+    scrollToBottomEvent();
+  }, 1000);
   messagesEvents.deleteMessageFromDBEvent();
   messagesEvents.getMessageForEditEvent();
   messagesEvents.editMessageInDBEvent();
+  messagesEvents.setActiveUsernameEvent();
+  messagesEvents.backToMainPage();
 };
 
 const eventInitialize = () => {
-
   eventMain.initial();
 };
 

@@ -71,6 +71,8 @@ body {
 }
 
 .modal-body-for-chat {
+  margin: auto;
+  max-width: 1280px;
   padding: 2px 16px;
   display: flex;
   justify-content: space-evenly;
@@ -81,6 +83,7 @@ body {
   height: 530px;
   display: inline-block;
   border: solid 1px red;
+  box-sizing:border-box;
 }
 
 /* Left Panel */
@@ -171,6 +174,7 @@ body {
 
 #chat-friend-list {
   height: 57%;
+  overflow-y: scroll;
 }
 
 #chat-friend-action {
@@ -194,7 +198,7 @@ body {
 }
 
 #chat-message {
-  height: 80%;
+  height: 85%;
   overflow-y: scroll;
 }
 
@@ -222,13 +226,13 @@ body {
 .chat-message-detail {
   display: block;
   max-width: 40%;
-  margin-top: 12px;
+  margin-top: 30px;
 }
 
 /* hover over message then display bottons */
 .chat-message-btn-group {
   display: none;
-  margin-top: 12px;
+  margin-top: 30px;
 }
 
 .chat-message-btn-group-me {
@@ -254,11 +258,21 @@ body {
 .chat-message-wrapper-me {
   float: left;
   width: 100%;
+  position: relative;
 }
 
 .chat-message-user-avatar-me {
   float: left;
   margin-left: 15px;
+}
+
+.chat-message-timestamp-me {
+  position: absolute;
+  top: -30px;
+  left: 95px;
+  padding: 4px;
+  color: black;
+  margin-left: 20px;
 }
 
 .chat-message-detail-me {
@@ -274,11 +288,22 @@ body {
 .chat-message-wrapper-other {
   float: right;
   width: 100%;
+  position: relative;
 }
 
 .chat-message-user-avatar-other {
   float: right;
   margin-right: 15px;
+}
+
+.chat-message-timestamp-other {
+  position: absolute;
+  top: -30px;
+  right: 95px;
+  border-radius: 8px;
+  padding: 4px;
+  color: black;
+  margin-right: 20px;
 }
 
 .chat-message-detail-other {
@@ -296,7 +321,9 @@ body {
 }
 
 #chat-input {
-  height: 10%;
+  height: 5%;
+  box-sizing:border-box;
+  white-space: nowrap;
 }
 
 /* Add Animation */
@@ -322,7 +349,7 @@ body {
 /* Landing Page Styles */
 
 .landing-page-elements {
-  margin: 200px auto 0;
+  margin: auto 0;
 }
 
 .dashboard-element {
@@ -367,15 +394,29 @@ body {
 
 .pending {
   background-color: red;
-
+}
 /* Scroll Bar */
-#chat-message::-webkit-scrollbar {
+#chat-message::-webkit-scrollbar,
+#chat-friend-list::-webkit-scrollbar {
   -webkit-appearance: none;
   width: 10px;
 }
 
-#chat-message::-webkit-scrollbar-thumb {
+#chat-message::-webkit-scrollbar-thumb,
+#chat-friend-list::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgba(0,0,0,.5);
   -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+/* Message Input Field */
+#chat-input-message {
+  width: 80%;
+  height: 100%;
+
+}
+
+#chat-input-send-btn {
+  width: 19%;
+  height: 100%;
 }
