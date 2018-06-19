@@ -112,6 +112,12 @@ const scrollToBottomEvent = () => {
   return false;
 };
 
+const backToMainPage = () => {
+  $(document).on('click','#close-chat-modal-btn', () => {
+    $('#landing-page').removeClass('hide');
+  });
+};
+
 module.exports = {
   activateChatModalEvent,
   deactivateChatModalEvent,
@@ -121,4 +127,5 @@ module.exports = {
   editMessageInDBEvent,
   getMessageForEditEvent,
   setActiveUsernameEvent,
+  backToMainPage,
 };
