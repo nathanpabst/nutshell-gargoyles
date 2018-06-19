@@ -2,12 +2,15 @@ const firebaseAPI = require('../firebaseAPI');
 
 let firebaseConfig = {};
 let userId = '';
+let activeUsername = '';
+
+const getActiveUsername = () => {
+  return activeUsername;
+};
 
 const getFirebaseConfig = () => {
   firebaseConfig = firebaseAPI.getFirebaseConfigObj();
   userId = firebaseAPI.getUID();
-  // console.log(firebaseConfig.apiKeys.firebaseDB.databaseURL);
-  // console.log(userId);
 };
 
 // Post message to database
@@ -15,6 +18,7 @@ const postMessageToDB = (messageToSave) => {
   getFirebaseConfig();
   return new Promise((resolve,reject) => {
     messageToSave.userUid = userId;
+    messageToSave.username = activeUsername;
 
     $.ajax({
       method: 'POST',
@@ -74,6 +78,7 @@ const deleteMessageFromDB = (messageId) => {
 const editMessageInDB = (messageToEdit,messageId) => {
   return new Promise((resolve,reject) => {
     messageToEdit.userUid = userId;
+    messageToEdit.username = activeUsername;
     $.ajax({
       method: 'PUT',
       url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/messages/${messageId}.json`,
@@ -88,10 +93,54 @@ const editMessageInDB = (messageToEdit,messageId) => {
   });
 };
 
+// get all users from user table then assign to local variable
+const getUsersFromDB = () => {
+  getFirebaseConfig();
+  return new Promise((resolve,reject) => {
+    const usersArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.apiKeys.firebaseDB.databaseURL}/users.json`,
+    })
+      .done((allUsers) => {
+        if (allUsers !== null) {
+          Object.keys(allUsers).forEach((fbKey) => {
+            allUsers[fbKey].id = fbKey;
+            usersArray.push(allUsers[fbKey]);
+          });
+        };
+        resolve(usersArray);
+      })
+      .fail((err) => {
+        reject(err);
+      });
+  });
+};
+
+// Set active user's username
+const setActiveUsername = () => {
+  getUsersFromDB()
+    .then((allUsers) => {
+      allUsers.forEach((user) => {
+        if (user.uid === userId) {
+          activeUsername = user.username;
+
+          $('#chat-active-user-name').html(activeUsername);
+        };
+      });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
 module.exports = {
   getFirebaseConfig,
   postMessageToDB,
   getMessageFromDB,
   deleteMessageFromDB,
   editMessageInDB,
+  getUsersFromDB,
+  setActiveUsername,
+  getActiveUsername,
 };

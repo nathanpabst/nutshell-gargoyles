@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "Gruntfile.js",
   "dependencies": {
+    "firebase-admin": "^5.12.1",
     "moment": "^2.22.2"
   },
   "devDependencies": {
