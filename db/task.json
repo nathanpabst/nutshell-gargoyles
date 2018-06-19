@@ -1,0 +1,24 @@
+{
+  "tasks": {
+    "tasks0": {
+      "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
+      "task": "Take out garbage",
+      "isCompleted": true
+    },
+    "tasks1": {
+      "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
+      "task": "Take out garbage",
+      "isCompleted": true
+    },
+    "tasks2": {
+      "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
+      "task": "Take out garbage",
+      "isCompleted": true
+    },
+    "tasks3": {
+      "userUid": "5ykBb0xyadPZLgH4EPO4i88HIql2",
+      "task": "Take out garbage",
+      "isCompleted": true
+    }
+  }
+}

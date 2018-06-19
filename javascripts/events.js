@@ -1,4 +1,5 @@
 const firebaseAPI = require('./firebaseAPI');
+const tasks = require('./tasks/taskMain');
 const friendsMain = require('./friends/friendsMain');
 const eventEvent = require('./event/eventEvents');
 const news = require('./news/newsMain');
@@ -16,6 +17,7 @@ const landingPageLinks = () => {
   $('#tasksBtn').click(() => {
     $('#tasks-page').removeClass('hide');
     $('#landing-page').addClass('hide');
+    tasks.initializeTaskApp();
   });
   $('#newsBtn').click(() => {
     $('#news-page').removeClass('hide');
