@@ -62,13 +62,18 @@ const acceptAFriendBtnEvent = () => {
         friendsFirebase.getAllFriendsAccepted()
           .then((friendsArray) => {
             friendsDom.displayFriends(friendsArray);
+            friendsFirebase.getAllFriendsPending()
+              .then((pendingFriendsArray) => {
+                friendsDom.displayFriendsPending(pendingFriendsArray);
+              })
+              .catch();
           })
           .catch();
-        friendsFirebase.getAllFriendsPending()
-          .then((pendingFriendsArray) => {
-            friendsDom.displayFriendsPending();
-          })
-          .catch();
+        // friendsFirebase.getAllFriendsPending()
+        //   .then((pendingFriendsArray) => {
+        //     friendsDom.displayFriendsPending();
+        //   })
+        //   .catch();
       })
       .catch();
   });
@@ -104,9 +109,60 @@ const unFriendBtnEvent = () => {
   });
 };
 
+const showPendingFriendRequests = () => {
+  friendsFirebase.getAllFriendsPending()
+    .then((pendingFriendsArray) => {
+      if (pendingFriendsArray !== null) {
+        friendsDom.displayFriendsPendingLandingPage(pendingFriendsArray);
+        acceptAFriendLandingPageBtnEvent();
+        declineAFriendLandingPageBtnEvent();
+      }
+    })
+    .catch();
+};
+
+const acceptAFriendLandingPageBtnEvent = () => {
+  $(document).on('click', '.acceptFriend', (e) => {
+    const userUid = $(e.target).closest('.friendRequest').data('userUid');
+    const friendUid = $(e.target).closest('.friendRequest').data('friendUid');
+    const idForDB = $(e.target).closest('.friendRequest').data('id');
+    const modifiedFriendship = {
+      friendUid: friendUid,
+      isAccepted: true,
+      isPending: false,
+      userUid: userUid,
+    };
+    friendsFirebase.acceptAFriend(modifiedFriendship, idForDB)
+      .then(() => {
+        friendsFirebase.getAllFriendsPending()
+          .then((pendingFriendsArray) => {
+            friendsDom.displayFriendsPendingLandingPage(pendingFriendsArray);
+          })
+          .catch();
+      })
+      .catch();
+  });
+};
+
+const declineAFriendLandingPageBtnEvent = () => {
+  $(document).on('click', '.declineFriend', (e) => {
+    const idForDB = $(e.target).closest('.friendRequest').data('id');
+    friendsFirebase.deleteAFriend(idForDB)
+      .then(() => {
+        friendsFirebase.getAllFriendsPending()
+          .then((pendingFriendsArray) => {
+            friendsDom.displayFriendsPendingLandingPage(pendingFriendsArray);
+          })
+          .catch();
+      })
+      .catch();
+  });
+};
+
 module.exports = {
   addFriendBtnEvent,
   acceptAFriendBtnEvent,
   declineAFriendBtnEvent,
   unFriendBtnEvent,
+  showPendingFriendRequests,
 };
