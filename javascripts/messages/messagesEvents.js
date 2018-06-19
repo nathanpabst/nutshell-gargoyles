@@ -1,5 +1,5 @@
 const messagesFirebaseAPI = require('./messagesFirebaseAPI');
-// const moment = require('../../lib/node_modules/moment');
+const moment = require('../../lib/node_modules/moment');
 const messagesDom = require('./messagesDom');
 
 const activateChatModalEvent = () => {
@@ -20,7 +20,7 @@ const postMessageToDBEvent = () => {
     const messageToSave = {
       avatar: 'https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg',
       message: $('#chat-input-message').val(),
-      // timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
       isEdited: false,
     };
     messagesFirebaseAPI.postMessageToDB(messageToSave)
@@ -112,6 +112,12 @@ const scrollToBottomEvent = () => {
   return false;
 };
 
+const backToMainPage = () => {
+  $(document).on('click','#close-chat-modal-btn', () => {
+    $('#landing-page').removeClass('hide');
+  });
+};
+
 module.exports = {
   activateChatModalEvent,
   deactivateChatModalEvent,
@@ -121,4 +127,7 @@ module.exports = {
   editMessageInDBEvent,
   getMessageForEditEvent,
   setActiveUsernameEvent,
+  backToMainPage,
+  getMessage,
+  scrollToBottomEvent,
 };

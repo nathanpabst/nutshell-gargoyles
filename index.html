@@ -12,7 +12,35 @@
 </head>
 
 <body>
-  <button id="logoutBtn" class="hide">Log Out</button>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand go-home" href="#">Home</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" id="authBtn">Authentication</a>
+          </li>
+          <li>
+            <a href="#" id="logoutBtn">Log out</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
   <div id="dashboard"></div>
 
   <div id="authScreen">
@@ -176,7 +204,8 @@
             </div>
             <div id="chat-input">
               <input type="text" name="" id="chat-input-message">
-              <button id="chat-input-send-btn"><span class="glyphicon glyphicon-send"></span>Send</button>
+              <button id="chat-input-send-btn">
+                <span class="glyphicon glyphicon-send"></span>Send</button>
             </div>
           </div>
         </div>
@@ -248,11 +277,11 @@
   </div>
 
   <div id="messages-page" class="module-container">
-    <button class="btn btn-default go-home">Home</button>
+    <!-- <button class="btn btn-default go-home">Home</button> -->
   </div>
 
   <div id="events-page" class="module-container hide">
-    <button class="btn btn-default go-home">Home</button>
+    <!-- <button class="btn btn-default go-home">Home</button> -->
     <button type="submit" class="btn btn-primary" id="addEventBtn">Add Event</button>
     <!-- <button type="submit" class="btn btn-primary" id="editEventBtn">Edit Event</button> -->
     <div class="row">
@@ -273,7 +302,7 @@
         <div class="form-group">
           <!-- Subject field -->
           <label class="control-label " for="subject">Event Location</label>
-          <input class="form-control" id="location" name="subject" type="text" placeholder="Event Location:"/>
+          <input class="form-control" id="location" name="subject" type="text" placeholder="Event Location:" />
         </div>
 
         <div class="form-group">
@@ -292,7 +321,7 @@
         <div class="form-group">
           <!-- Email field -->
           <label class="control-label " for="date">Event Date</label>
-          <input class="form-control" id="editDate" name="name" type="text" >
+          <input class="form-control" id="editDate" name="name" type="text">
         </div>
 
         <div class="form-group">
@@ -311,21 +340,25 @@
   </div>
 
   <div id="tasks-page" class="module-container hide">
-    <button class="btn btn-default go-home">Home</button>
+    <!-- <button class="btn btn-default go-home">Home</button> -->
   </div>
 
   <div id="news-page" class="module-container hide">
-    <button class="btn btn-default go-home">Home</button>
+    <!-- <button class="btn btn-default go-home">Home</button> -->
   </div>
 
   <div id="friends-page" class="module-container text-center hide">
-    <button class="btn btn-default go-home">Home</button>
+    <!-- <button class="btn btn-default go-home">Home</button> -->
 
-    <h2><u>Your Friends</u></h2>
+    <h2>
+      <u>Your Friends</u>
+    </h2>
 
     <div id="your-friends"></div>
 
-    <h2><u>Friends Requests Pending</u></h2>
+    <h2>
+      <u>Friends Requests Pending</u>
+    </h2>
 
     <div id="pending-friends"></div>
 

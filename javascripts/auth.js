@@ -17,6 +17,16 @@ const checkLoginStatus = () => {
       $('#news-page').addClass('hide');
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
+      $('#authBtn').addClass('hide');
+      $('.go-home').click((e) => {
+        $(e.target).closest('.module-container').addClass('hide');
+        $('#messages-page').addClass('hide');
+        $('#tasks-page').addClass('hide');
+        $('#news-page').addClass('hide');
+        $('#friends-page').addClass('hide');
+        $('#events-page').addClass('hide');
+        $('#landing-page').removeClass('hide');
+      });
       friendsFirebase.getUidFirebaseConfig();
       friendsEvents.showPendingFriendRequests();
       console.log('I am in!');
@@ -30,7 +40,8 @@ const checkLoginStatus = () => {
       $('#news-page').addClass('hide');
       $('#friends-page').addClass('hide');
       $('#events-page').addClass('hide');
-      console.log('I am out');
+      $('#authBtn').removeClass('hide');
+      $('.go-home').unbind('click');
     };
   });
 };
