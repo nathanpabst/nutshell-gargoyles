@@ -85,7 +85,7 @@ const editMessageInDBEvent = () => {
     const messageToEdit = {
       avatar: 'https://www.healthypawspetinsurance.com/Images/V3/DogAndPuppyInsurance/Dog_CTA_Desktop_HeroImage.jpg',
       message: $('#chat-message-content-edit').val(),
-      // timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
+      timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
       isEdited: true,
     };
     messagesFirebaseAPI.editMessageInDB(messageToEdit,messageId)
