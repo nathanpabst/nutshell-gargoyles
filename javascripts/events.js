@@ -1,7 +1,7 @@
 const firebaseAPI = require('./firebaseAPI');
 const newsEvents = require('./news/newsEvents');
 const eventEvent = require('./event/eventEvents');
-const news = require('./news/newsMain');
+// const news = require('./news/newsMain');
 
 const landingPageLinks = () => {
   $('#messagesBtn').click(() => {
