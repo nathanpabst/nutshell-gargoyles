@@ -41,7 +41,7 @@ const displayFriends = (friendsArray) => {
           console.error('cannot access username', error);
         });
     } else if (uid === friend.friendUid) {
-      friendsFirebase.getOneUserName(friend.friendUid)
+      friendsFirebase.getOneUserName(friend.userUid)
         .then((username) => {
           identifier = username;
           domString +=  `<div class="acceptedFriend" data-id="${friend.id}">`;
@@ -96,8 +96,44 @@ const printPendingFriendsToDom = (string) => {
   $('#pending-friends').html(string);
 };
 
+const displayFriendsPendingLandingPage = (pendingFriendsArray) => {
+  const uid = getUID();
+  let domString = '<h2><u>Friend Requests</u></h2>';
+  let identifier = '';
+  pendingFriendsArray.forEach((friend) => {
+    // const friendUsername = friendsFirebase.getOneUserName(friend.friendUid);
+    if (uid === friend.friendUid) {
+      friendsFirebase.getOneUserName(friend.userUid)
+        .then((username) => {
+          identifier = username;
+          domString +=  `<div class="friendRequest" data-user-uid="${friend.userUid}" data-friend-uid="${friend.friendUid}" data-id="${friend.id}">`;
+          domString +=    `<p>${identifier}</p>`;
+          domString +=    `<button class="btn btn-default acceptFriend">Accept</button>`;
+          domString +=    `<button class="btn btn-default declineFriend">Decline</button>`;
+          domString +=  `</div>`;
+          printPendingFriendsToLandingPage(domString);
+        });
+    } else if (uid === friend.userUid) {
+      friendsFirebase.getOneUserName(friend.friendUid)
+        .then((username) => {
+          identifier = username;
+          domString +=  `<div class="">`;
+          domString +=    `<p>${identifier}</p>`;
+          domString +=    `<p>Waiting for friend to accept</p>`;
+          domString +=  `</div>`;
+          printPendingFriendsToLandingPage(domString);
+        });
+    }
+  });
+};
+
+const printPendingFriendsToLandingPage = (string) => {
+  $('#landing-page-pending-friends').html(string);
+};
+
 module.exports = {
   allUsersDom,
   displayFriends,
   displayFriendsPending,
+  displayFriendsPendingLandingPage,
 };

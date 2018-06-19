@@ -4,6 +4,7 @@ const messagesEvents = require('./messages/messagesEvents');
 const eventMain = require('./event/eventsMain');
 const news = require('./news/newsMain');
 const tasks = require ('./tasks/taskMain');
+const friendsEvents = require('./friends/friendsEvents');
 
 const initializeApp = () => {
   apiKeys.getFirebaseConfig();
@@ -11,6 +12,7 @@ const initializeApp = () => {
   tasks.initializeTaskApp();
   events.landingPageLinks();
   news.initializeNews();
+  friendsEvents.showPendingFriendRequests();
   messagesEvents.activateChatModalEvent();
   messagesEvents.deactivateChatModalEvent();
   messagesEvents.postMessageToDBEvent();
